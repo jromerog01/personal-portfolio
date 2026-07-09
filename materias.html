@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Materias Cursadas - Jesús Romero</title>
+<!-- Set theme before first paint to avoid a light/dark flash -->
+<script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+<!-- Font Awesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="index.html">
+<i class="fa-solid fa-house text-xs"></i>
+<span class="hidden sm:inline">Inicio</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="index.html#acerca">
+<i class="fa-regular fa-user text-xs"></i>
+<span class="hidden sm:inline">Acerca</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="materias.html">
+<i class="fa-solid fa-graduation-cap text-xs"></i>
+<span class="hidden sm:inline">Materias</span>
+</a>
+<button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
+<i class="fa-solid fa-moon text-sm dark:hidden"></i>
+<i class="fa-solid fa-sun text-sm hidden dark:inline"></i>
+</button>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow flex flex-col items-center pt-32 pb-24 w-full px-6 md:px-12">
+<div class="max-w-4xl w-full mx-auto">
+<a class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-8" href="index.html#formacion">
+<i class="fa-solid fa-arrow-left text-xs"></i>
+        Volver al portafolio
+      </a>
+<div class="text-center mb-12">
+<div class="flex items-center justify-center space-x-4 mb-4">
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Materias Cursadas</h1>
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Licenciatura en Ciencias de la Computación &middot; UNAM, Facultad de Ciencias</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-10">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 text-center soft-shadow">
+<p class="text-3xl font-bold text-gray-900 dark:text-white">29</p>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-1">Materias cursadas</p>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 text-center soft-shadow">
+<p class="text-3xl font-bold text-gray-900 dark:text-white">266</p>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-1">Créditos acumulados</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Primer Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">48 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0007</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Álgebra Superior I</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1123</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Estructuras Discretas</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1124</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inglés I</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">4</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1125</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Introducción a Ciencias de la Computación</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">12</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1126</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Matemáticas para Ciencias Aplicadas I</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">12</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Segundo Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">48 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0008</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Álgebra Superior II</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0422</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Gráficas y Juegos</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1222</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Estructuras de Datos</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">12</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1223</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inglés II</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">4</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1226</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Matemáticas para Ciencias Aplicadas II</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">12</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Tercer Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">46 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0005</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Álgebra Lineal I</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0625</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Probabilidad I</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1322</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inglés III</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">4</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1323</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Modelado y Programación</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1326</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Matemáticas para Ciencias Aplicadas III</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">12</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Cuarto Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">46 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1425</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Autómatas y Lenguajes Formales</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1426</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inglés IV</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">4</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1427</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Lógica Computacional</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1428</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Organización y Arquitectura de Computadoras</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1429</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Matemáticas para Ciencias Aplicadas IV</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">12</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Quinto Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">44 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1532</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Análisis de Algoritmos</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1533</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Computación Distribuida</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1534</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Fundamentos de Bases de Datos</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1535</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inglés V</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">4</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1536</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Lenguajes de Programación</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Sexto Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">20 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0575</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Ingeniería de Software</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0608</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inteligencia Artificial</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Octavo Semestre</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">4 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">1829</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Inglés VI</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">4</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400">Obligatoria</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl overflow-hidden soft-shadow">
+<div class="flex items-center justify-between px-6 py-4 bg-gray-50 dark:bg-gray-900/40 border-b border-gray-100 dark:border-gray-700">
+<h2 class="text-base font-bold text-gray-900 dark:text-white">Optativas</h2>
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500">10 créditos</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm px-6">
+<thead>
+<tr class="text-left text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+<th class="pl-6 py-2 pr-4">Clave</th>
+<th class="py-2 pr-4">Asignatura</th>
+<th class="py-2 pr-4 text-center">Créditos</th>
+<th class="py-2 pr-6 text-right">Tipo</th>
+</tr>
+</thead>
+<tbody class="px-6">
+<tr class="border-b border-gray-100 dark:border-gray-700 last:border-0">
+<td class="py-3 pr-4 font-mono text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap">0658</td>
+<td class="py-3 pr-4 text-gray-800 dark:text-gray-200">Almacenes y Minería de Datos</td>
+<td class="py-3 pr-4 text-gray-500 dark:text-gray-400 text-center whitespace-nowrap">10</td>
+<td class="py-3 text-right whitespace-nowrap"><span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400">Optativa</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- END: Main Content -->
+<script defer="" src="js/theme.js"></script>
+</body></html>
