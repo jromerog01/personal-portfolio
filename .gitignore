@@ -1,0 +1,13 @@
+# Claude Code / AI tooling
+.claude/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

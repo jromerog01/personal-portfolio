@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portafolio - Jesús Romero</title>
+<!-- Set theme before first paint to avoid a light/dark flash -->
+<script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+<!-- Font Awesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-6 py-3 soft-shadow flex items-center space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded-full transition-colors" href="#">
+<i class="fa-solid fa-house text-xs"></i>
+<span>Inicio</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<i class="fa-regular fa-user text-xs"></i>
+<span>Acerca</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#proyectos">
+<i class="fa-regular fa-folder text-xs"></i>
+<span>Proyectos</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<i class="fa-solid fa-wrench text-xs"></i>
+<span>Servicios</span>
+</a>
+<button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
+<i class="fa-solid fa-moon text-sm dark:hidden"></i>
+<i class="fa-solid fa-sun text-sm hidden dark:inline"></i>
+</button>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow flex flex-col items-center pt-24 pb-12 w-full">
+<!-- BEGIN: Hero Section -->
+<section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full">
+<div class="flex flex-col lg:flex-row items-center justify-between w-full gap-16 lg:gap-8">
+<!-- BEGIN: Left Column (Text & Buttons) -->
+<div class="flex-1 max-w-xl min-w-0 space-y-8">
+<!-- Header Text -->
+<div class="space-y-4">
+<h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Hola, soy <span class="text-gray-400 dark:text-gray-500">Jesús</span>
+</h1>
+<!-- Typewriter Effect Container -->
+<div class="text-2xl md:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-nowrap">
+<span id="typewriter-text">Ciencias de la Computación</span><span class="typing-cursor"></span>
+</div>
+</div>
+<!-- Description -->
+<p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-md">
+          Soy estudiante de 7º semestre de <strong class="text-gray-800 dark:text-gray-100 font-semibold">Ciencias de la Computación</strong> en la UNAM, con enfoque en backend y desarrollo de software escalable. Comprometido con la calidad del código y el aprendizaje continuo.
+        </p>
+<!-- Call to Action Buttons -->
+<div class="flex flex-wrap gap-4 pt-2">
+<a class="group inline-flex items-center justify-center px-6 py-3 border-2 border-gray-900 dark:border-gray-100 text-base font-medium rounded-full text-gray-900 dark:text-gray-100 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<i class="fa-solid fa-arrow-right mr-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+            Contratar
+          </a>
+<a class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white dark:text-gray-900 bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-white transition-colors shadow-md" href="assets/cv/CV_JesusRomero.pdf" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-download mr-2 text-sm"></i>
+            Descargar CV
+          </a>
+</div>
+<!-- Divider -->
+<hr class="border-gray-100 dark:border-gray-800 my-8 w-3/4"/>
+<!-- Social Links -->
+<div class="space-y-3">
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase">Sígueme</p>
+<div class="flex space-x-4">
+<a class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="mailto:jromerog01@outlook.com">
+<i class="fa-regular fa-envelope text-xl"></i>
+<span class="sr-only">Email</span>
+</a>
+<a class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="tel:+525516522741">
+<i class="fa-solid fa-phone text-xl"></i>
+<span class="sr-only">Teléfono</span>
+</a>
+<a class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://github.com/jromerog01" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github text-xl"></i>
+<span class="sr-only">GitHub</span>
+</a>
+<a class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://www.linkedin.com/in/jesus-antonio-romero-godoy-8a9032383/?skipRedirect=true" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-linkedin text-xl"></i>
+<span class="sr-only">LinkedIn</span>
+</a>
+</div>
+</div>
+</div>
+<!-- END: Left Column -->
+<!-- BEGIN: Right Column (Code Editor Snippet) -->
+<div class="flex-1 w-full max-w-lg lg:max-w-xl">
+<div class="bg-[#2E3440] rounded-xl overflow-hidden soft-shadow border border-[#4C566A]">
+<!-- Editor Window Controls -->
+<div class="bg-[#3B4252] px-4 py-3 flex items-center border-b border-[#4C566A]">
+<div class="flex space-x-2">
+<div class="w-3 h-3 rounded-full bg-[#BF616A]"></div>
+<div class="w-3 h-3 rounded-full bg-[#EBCB8B]"></div>
+<div class="w-3 h-3 rounded-full bg-[#A3BE8C]"></div>
+</div>
+<div class="mx-auto text-xs text-[#88C0D0] font-mono select-none">EventoController.java</div>
+</div>
+<!-- Code Content -->
+<div class="p-6 overflow-x-auto text-sm font-mono leading-relaxed">
+<pre><code class="language-java text-[#D8DEE9]">
+<span class="text-[#B48EAD]">@RestController</span>
+<span class="text-[#B48EAD]">@RequestMapping</span>(<span class="text-[#A3BE8C]">"/api/eventos"</span>)
+<span class="text-[#81A1C1]">public</span> <span class="text-[#81A1C1]">class</span> <span class="text-[#8FBCBB]">EventoController</span> {
+
+  <span class="text-[#B48EAD]">@Autowired</span>
+  <span class="text-[#81A1C1]">private</span> <span class="text-[#8FBCBB]">EventoService</span> eventoService;
+
+  <span class="text-[#B48EAD]">@GetMapping</span>
+  <span class="text-[#81A1C1]">public</span> <span class="text-[#8FBCBB]">List</span>&lt;<span class="text-[#8FBCBB]">Evento</span>&gt; <span class="text-[#88C0D0]">obtenerEventos</span>() {
+    <span class="text-[#81A1C1]">return</span> eventoService.<span class="text-[#88C0D0]">findAll</span>();
+  }
+
+  <span class="text-[#B48EAD]">@PostMapping</span>
+  <span class="text-[#81A1C1]">public</span> <span class="text-[#8FBCBB]">Evento</span> <span class="text-[#88C0D0]">crearEvento</span>(<span class="text-[#B48EAD]">@RequestBody</span> <span class="text-[#8FBCBB]">Evento</span> evento) {
+    <span class="text-[#81A1C1]">return</span> eventoService.<span class="text-[#88C0D0]">guardar</span>(evento);
+  }
+}
+</code></pre>
+</div>
+</div>
+</div>
+<!-- END: Right Column -->
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: About Me Section -->
+<section class="w-full py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+<div class="text-center mb-16">
+<div class="flex items-center justify-center space-x-4 mb-4">
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Acerca de Mí</h2>
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Transformando ideas en experiencias digitales</p>
+</div>
+<div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-24">
+<!-- About Text Column -->
+<div class="flex-1 space-y-6">
+<div>
+<div class="flex items-center gap-8 mb-5">
+<img alt="UNAM" class="h-24 w-auto" src="assets/img/unam.svg"/>
+<img alt="Facultad de Ciencias" class="h-24 w-auto" src="assets/img/ciencias.svg"/>
+</div>
+<p class="text-sm font-semibold text-gray-400 dark:text-gray-500 mb-1">Hola, soy</p>
+<h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Jesús Antonio Romero Godoy</h3>
+</div>
+<div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+<p>
+          Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, con experiencia en desarrollo de software y enfoque en la resolución de problemas complejos.
+        </p>
+<p>
+          Interesado en áreas de backend, desarrollo de sistemas y creación de software escalable. Comprometido con la calidad del código, el aprendizaje continuo y el trabajo en equipo.
+        </p>
+</div>
+<!-- Tech Stack -->
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Java" class="w-5 h-5" src="assets/img/tech/java.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Java</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Spring Boot" class="w-5 h-5" src="assets/img/tech/spring-boot.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Spring Boot</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Python" class="w-5 h-5" src="assets/img/tech/python.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Python</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Django" class="w-5 h-5" src="assets/img/tech/django.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Django</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="PostgreSQL" class="w-5 h-5" src="assets/img/tech/postgresql.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">PostgreSQL</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="SQLite" class="w-5 h-5" src="assets/img/tech/sqlite.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">SQLite</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<i class="fa-brands fa-docker text-lg text-[#2496ED]"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Docker</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Git" class="w-5 h-5" src="assets/img/tech/git.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Git</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="GitHub" class="w-5 h-5" src="assets/img/tech/github.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">GitHub</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Fedora" class="w-5 h-5" src="assets/img/tech/fedora.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Fedora</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Ubuntu Server" class="w-5 h-5" src="assets/img/tech/ubuntuServer.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Ubuntu Server</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Jupyter Notebooks" class="w-5 h-5" src="assets/img/tech/jupyterNotebook.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Jupyter</span>
+</span>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white dark:text-gray-900 bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-white transition-colors shadow-sm" href="assets/cv/CV_JesusRomero.pdf" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-download mr-2 text-xs"></i>
+          Descargar CV
+        </a>
+<a class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-sm font-medium rounded-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="#">
+<i class="fa-solid fa-code mr-2 text-xs"></i>
+          Ver Proyectos
+        </a>
+</div>
+</div>
+<!-- About Image Column -->
+<div class="flex-1 flex justify-center lg:justify-end">
+<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2 border-gray-100 dark:border-gray-700 soft-shadow">
+<div class="w-full h-full rounded-full overflow-hidden bg-gray-50 dark:bg-gray-800">
+<img alt="Retrato profesional" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2SDukF_tFZbBzrwGT74zJHXNE1E_2EK1KSSLIB0f-SxhbdCzbBfei7BOlE1VFiDBw4BYrN4h2YtPV1jt_9WLAKpDR8NNWcpjFMEPN4UdtduYlc1S3nliG-CxiQbsl5VPN7avo8_E00gWymmXmXsD6SG3zeYoUralskcH2H52j9vXvA5UiVXw-hjt4mnCV0RjkX5_KExskXOFYaw0coiskPvv9cbJ4kspoIp7jtQTGRPf33cjNC100gRSx7_Gc2k2fiTfwelUEN6M"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: About Me Section -->
+<!-- BEGIN: Academic Foundation Section -->
+<section class="w-full py-24 bg-[#fcfcfc] dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+<div class="text-center mb-16">
+<div class="flex items-center justify-center space-x-4 mb-4">
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Formación Académica</h2>
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Proyectos académicos y trayectoria técnica</p>
+</div>
+<!-- Education Header -->
+<div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-8 mb-20 soft-shadow text-center">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Licenciatura en Ciencias de la Computación</h3>
+<p class="text-blue-500 dark:text-blue-400 font-medium mb-4">Promedio: 9.53/10 · Avance en créditos: 62%</p>
+<p class="text-gray-600 dark:text-gray-300 text-sm mb-2">UNAM, Facultad de Ciencias</p>
+<p class="text-gray-400 dark:text-gray-500 text-sm">Ago 2023 — Presente</p>
+</div>
+<!-- Timeline -->
+<div class="relative max-w-4xl mx-auto">
+<!-- Vertical Line -->
+<div class="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gray-200 dark:bg-gray-700 hidden md:block"></div>
+<!-- Timeline Item 1 -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 md:w-5/12 mb-6 md:mb-0 w-full">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
+<div class="flex items-center space-x-2 text-blue-500 dark:text-blue-400 mb-3 text-sm font-bold uppercase tracking-wider">
+<i class="fa-solid fa-server"></i>
+<span>Backend</span>
+</div>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Sistema Backend de Gestión de Eventos Multirrol</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Spring Boot &amp; PostgreSQL</p>
+<div class="space-y-4 text-sm">
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
+<p class="text-gray-700 dark:text-gray-300">Conexión a PostgreSQL vía JDBC, operaciones CRUD completas sobre las tablas de la base de datos</p>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Spring Boot</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">PostgreSQL</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">JDBC</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-950 border-2 border-blue-500 dark:border-blue-400 rounded-full hidden md:block"></div>
+<div class="order-3 md:w-5/12 hidden md:block"></div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 md:w-5/12 hidden md:block"></div>
+<div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-950 border-2 border-blue-500 dark:border-blue-400 rounded-full hidden md:block"></div>
+<div class="order-3 md:w-5/12 mb-6 md:mb-0 w-full">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
+<div class="flex items-center space-x-2 text-blue-500 dark:text-blue-400 mb-3 text-sm font-bold uppercase tracking-wider">
+<i class="fa-solid fa-globe"></i>
+<span>Cliente-Servidor</span>
+</div>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Tienda en Línea Multilenguaje</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Java &amp; RMI</p>
+<div class="space-y-4 text-sm">
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
+<p class="text-gray-700 dark:text-gray-300">Arquitectura cliente-servidor con RMI, internacionalización dinámica según nacionalidad del usuario, carrito de compras dinámico</p>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Java</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">RMI</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 md:w-5/12 mb-6 md:mb-0 w-full">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
+<div class="flex items-center space-x-2 text-blue-500 dark:text-blue-400 mb-3 text-sm font-bold uppercase tracking-wider">
+<i class="fa-solid fa-book"></i>
+<span>MVC</span>
+</div>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Gestor de Préstamos para Biblioteca</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Java &amp; MVC</p>
+<div class="space-y-4 text-sm">
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
+<p class="text-gray-700 dark:text-gray-300">Roles de Bibliotecario y Usuario, patrón Modelo-Vista-Controlador, arquitectura cliente-servidor con Proxy</p>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Java</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">MVC</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Proxy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-950 border-2 border-blue-500 dark:border-blue-400 rounded-full hidden md:block"></div>
+<div class="order-3 md:w-5/12 hidden md:block"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Academic Foundation Section -->
+<!-- BEGIN: Projects Section -->
+<section id="proyectos" class="w-full py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+<div class="text-center mb-16">
+<div class="flex items-center justify-center space-x-4 mb-4">
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Proyectos</h2>
+<div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Soluciones backend construidas de punta a punta</p>
+</div>
+<!-- Featured Project Card -->
+<div class="bg-[#2E3440] rounded-2xl overflow-hidden soft-shadow border border-[#4C566A] max-w-5xl mx-auto">
+<div class="p-8 md:p-10">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC] text-white mb-4">
+<i class="fa-solid fa-star mr-2 text-[10px]"></i>Proyecto Principal
+</span>
+<h3 class="text-2xl md:text-3xl font-bold text-white mb-3">StockFlow API REST</h3>
+<p class="text-[#D8DEE9] leading-relaxed mb-6 max-w-3xl">
+          Sistema backend enfocado en la gestión de inventarios: administra proveedores, productos y stock, y funciona además como punto de venta (POS), permitiendo registrar ventas y consultar el historial de movimientos.
+        </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Spring Boot</span>
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">PostgreSQL</span>
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">JPA</span>
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Hibernate</span>
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Spring Web</span>
+</div>
+<div class="flex flex-wrap gap-4">
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-medium bg-white text-gray-900 hover:bg-gray-100 transition-colors" href="https://github.com/jromerog01/StockFlow-APIRest" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github mr-2"></i>Ver código
+          </a>
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-medium border border-[#4C566A] text-[#88C0D0] hover:bg-[#3B4252] transition-colors" href="https://stockflow-api.jromerog.dev/swagger-ui/index.html" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>Ver demo (Swagger)
+          </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Projects Section -->
+</main>
+<!-- END: Main Content -->
+<script defer="" src="js/typewriter.js"></script>
+<script defer="" src="js/theme.js"></script>
+</body></html>
