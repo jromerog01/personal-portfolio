@@ -1,4 +1,4 @@
-const words = ["Ciencias de la Computación", "Ingeniería de Software", "Desarrollo Backend"];
+let words = ["Ciencias de la Computación", "Ingeniería de Software", "Desarrollo Backend"];
 let i = 0;
 let timer;
 const el = document.getElementById('typewriter-text');
@@ -9,7 +9,7 @@ function typingEffect() {
     if (word.length > 0) {
       el.innerHTML += word.shift();
     } else {
-      setTimeout(deletingEffect, 2000);
+      timer = setTimeout(deletingEffect, 2000);
       return false;
     };
     timer = setTimeout(loopTyping, 100);
@@ -29,7 +29,7 @@ function deletingEffect() {
       } else {
         i = 0;
       };
-      setTimeout(typingEffect, 500);
+      timer = setTimeout(typingEffect, 500);
       return false;
     };
     timer = setTimeout(loopDeleting, 50);
@@ -37,8 +37,16 @@ function deletingEffect() {
   loopDeleting();
 };
 
+function restartTypewriter(newWords) {
+  clearTimeout(timer);
+  words = newWords;
+  i = 0;
+  el.innerHTML = "";
+  typingEffect();
+}
+
 // Initialize by clearing the initial text and starting the effect
-setTimeout(() => {
+timer = setTimeout(() => {
     el.innerHTML = "";
     typingEffect();
 }, 1500); // Wait a bit before starting the animation

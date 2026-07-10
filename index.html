@@ -29,63 +29,68 @@
 <nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
 <a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="#">
 <i class="fa-solid fa-house text-xs"></i>
-<span class="hidden sm:inline">Inicio</span>
+<span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
 </a>
 <a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="#acerca">
 <i class="fa-regular fa-user text-xs"></i>
-<span class="hidden sm:inline">Acerca</span>
+<span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
 </a>
 <a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="#proyectos">
 <i class="fa-regular fa-folder text-xs"></i>
-<span class="hidden sm:inline">Proyectos</span>
+<span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
 </a>
 <a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="#">
 <i class="fa-solid fa-wrench text-xs"></i>
-<span class="hidden sm:inline">Servicios</span>
+<span class="hidden sm:inline" data-i18n="nav_servicios">Servicios</span>
 </a>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Settings (theme/lang) -->
+<div class="fixed top-3 sm:top-6 right-3 sm:right-6 z-50 bg-white dark:bg-gray-800 rounded-full px-1.5 py-1.5 sm:px-2 sm:py-2 soft-shadow flex items-center space-x-1 border border-gray-100 dark:border-gray-700 transition-colors duration-300">
 <button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
 <i class="fa-solid fa-moon text-sm dark:hidden"></i>
 <i class="fa-solid fa-sun text-sm hidden dark:inline"></i>
 </button>
-</nav>
-<!-- END: Navigation -->
+<button aria-label="Cambiar idioma" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="lang-toggle" type="button">EN</button>
+</div>
+<!-- END: Settings (theme/lang) -->
 <!-- BEGIN: Main Content -->
 <main class="flex-grow flex flex-col items-center pt-24 pb-12 w-full">
 <!-- BEGIN: Hero Section -->
 <section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full">
-<div class="flex flex-col lg:flex-row items-center justify-between w-full gap-16 lg:gap-8">
+<div class="flex flex-col xl:flex-row items-center justify-between w-full gap-16 xl:gap-8">
 <!-- BEGIN: Left Column (Text & Buttons) -->
 <div class="flex-1 max-w-xl min-w-0 space-y-8">
 <!-- Header Text -->
 <div class="space-y-4">
 <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Hola, soy <span class="text-gray-400 dark:text-gray-500">Jesús</span>
+            <span data-i18n="hero_greeting">Hola, soy</span> <span class="text-gray-400 dark:text-gray-500">Jesús</span>
 </h1>
 <!-- Typewriter Effect Container -->
-<div class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-normal lg:whitespace-nowrap">
+<div class="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-normal xl:whitespace-nowrap">
 <span id="typewriter-text">Ciencias de la Computación</span><span class="typing-cursor"></span>
 </div>
 </div>
 <!-- Description -->
-<p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-md">
+<p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-md" data-i18n-html="hero_desc">
           Soy estudiante de 7º semestre de <strong class="text-gray-800 dark:text-gray-100 font-semibold">Ciencias de la Computación</strong> en la UNAM, con enfoque en backend y desarrollo de software escalable. Comprometido con la calidad del código y el aprendizaje continuo.
         </p>
 <!-- Call to Action Buttons -->
 <div class="flex flex-wrap gap-4 pt-2">
 <a class="group inline-flex items-center justify-center px-6 py-3 border-2 border-gray-900 dark:border-gray-100 text-base font-medium rounded-full text-gray-900 dark:text-gray-100 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
 <i class="fa-solid fa-arrow-right mr-2 text-sm group-hover:translate-x-1 transition-transform"></i>
-            Contratar
+            <span data-i18n="btn_hire">Contratar</span>
           </a>
 <a class="group inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white dark:text-gray-900 bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-white transition-colors shadow-md" href="assets/cv/CV_JesusRomero.pdf" target="_blank" rel="noopener noreferrer">
 <i class="fa-solid fa-download mr-2 text-sm group-hover:animate-bounce"></i>
-            Descargar CV
+            <span data-i18n="btn_cv">Descargar CV</span>
           </a>
 </div>
 <!-- Divider -->
 <hr class="border-gray-100 dark:border-gray-800 my-8 w-3/4"/>
 <!-- Social Links -->
 <div class="space-y-3">
-<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase">Sígueme</p>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase" data-i18n="label_follow">Contactame</p>
 <div class="flex space-x-4">
 <a class="text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="mailto:jromerog01@outlook.com">
 <i class="fa-regular fa-envelope text-xl"></i>
@@ -153,29 +158,34 @@
 <div class="text-center mb-16">
 <div class="flex items-center justify-center space-x-4 mb-4">
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
-<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Acerca de Mí</h2>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="about_heading">Acerca de Mí</h2>
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
 </div>
-<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Transformando ideas en experiencias digitales</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide" data-i18n="about_subtitle">Transformando ideas en experiencias digitales</p>
 </div>
 <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-24">
 <!-- About Text Column -->
 <div class="flex-1 space-y-6">
 <div>
 <div class="flex items-center flex-wrap gap-4 sm:gap-8 mb-5">
-<a href="https://www.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="UNAM" class="h-16 sm:h-20 md:h-24 w-auto" src="assets/img/unam.svg"/></a>
-<a href="https://www.fciencias.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="Facultad de Ciencias" class="h-16 sm:h-20 md:h-24 w-auto" src="assets/img/ciencias.svg"/></a>
+<a href="https://www.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="UNAM" class="h-16 sm:h-20 md:h-24 w-auto icon-invert" src="assets/img/unam.svg"/></a>
+<a href="https://www.fciencias.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="Facultad de Ciencias" class="h-16 sm:h-20 md:h-24 w-auto icon-invert" src="assets/img/ciencias.svg"/></a>
 </div>
-<p class="text-sm font-semibold text-gray-400 dark:text-gray-500 mb-1">Hola, soy</p>
+<p class="text-sm font-semibold text-gray-400 dark:text-gray-500 mb-1" data-i18n="hero_greeting">Hola, soy</p>
 <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Jesús Antonio Romero Godoy</h3>
 </div>
 <div class="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
-<p>
+<p data-i18n="about_bio1">
           Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, con experiencia en desarrollo de software y enfoque en la resolución de problemas complejos.
         </p>
-<p>
+<p data-i18n="about_bio2">
           Interesado en áreas de backend, desarrollo de sistemas y creación de software escalable. Comprometido con la calidad del código, el aprendizaje continuo y el trabajo en equipo.
         </p>
+</div>
+<!-- Languages -->
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+<i class="fa-solid fa-language text-sm"></i>
+<span class="text-sm font-medium" data-i18n="lang_english">Inglés — B2 (Upper Intermediate)</span>
 </div>
 <!-- Tech Stack -->
 <div class="space-y-3">
@@ -218,7 +228,7 @@
 <span class="text-xs font-medium text-gray-600 dark:text-gray-300">Git</span>
 </a>
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-<img alt="GitHub" class="w-5 h-5" src="assets/img/tech/github.svg"/>
+<img alt="GitHub" class="w-5 h-5 icon-invert" src="assets/img/tech/github.svg"/>
 <span class="text-xs font-medium text-gray-600 dark:text-gray-300">GitHub</span>
 </a>
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">
@@ -234,7 +244,7 @@
 <span class="text-xs font-medium text-gray-600 dark:text-gray-300">Jupyter</span>
 </a>
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.latex-project.org/" target="_blank" rel="noopener noreferrer">
-<img alt="LaTeX" class="w-5 h-5 icon-invert" src="assets/img/tech/latex.svg"/>
+<img alt="LaTeX" class="h-3.5 w-auto icon-invert" src="assets/img/tech/latex.svg"/>
 <span class="text-xs font-medium text-gray-600 dark:text-gray-300">LaTeX</span>
 </a>
 </div>
@@ -242,11 +252,11 @@
 <div class="flex flex-wrap gap-4 pt-4">
 <a class="group inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white dark:text-gray-900 bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-white transition-colors shadow-sm" href="assets/cv/CV_JesusRomero.pdf" target="_blank" rel="noopener noreferrer">
 <i class="fa-solid fa-download mr-2 text-xs group-hover:animate-bounce"></i>
-          Descargar CV
+          <span data-i18n="btn_cv">Descargar CV</span>
         </a>
 <a class="group inline-flex items-center justify-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-sm font-medium rounded-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="#">
 <i class="fa-solid fa-code mr-2 text-xs transition-transform group-hover:scale-125"></i>
-          Ver Proyectos
+          <span data-i18n="btn_view_projects">Ver Proyectos</span>
         </a>
 </div>
 </div>
@@ -268,38 +278,34 @@
 <div class="text-center mb-16">
 <div class="flex items-center justify-center space-x-4 mb-4">
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
-<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Formación Académica</h2>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="formacion_heading">Formación Académica</h2>
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
 </div>
-<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Proyectos académicos y trayectoria técnica</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide" data-i18n="formacion_subtitle">Proyectos académicos y trayectoria técnica</p>
 </div>
 <!-- Accent color: using Nord blue (#5E81AC / #88C0D0 dark) instead of Tailwind blue-500/blue-400 in this section. To revert, swap those hex values back for text-blue-500 dark:text-blue-400 (and border-blue-500 dark:border-blue-400 for the timeline dots). -->
 <!-- Education Header -->
 <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 sm:p-8 mb-6 soft-shadow text-center">
 <div class="flex items-center justify-center flex-wrap gap-4 sm:gap-8 mb-6">
-<a href="https://www.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="UNAM" class="h-12 sm:h-16 w-auto" src="assets/img/unam.svg"/></a>
-<a href="https://www.fciencias.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="Facultad de Ciencias" class="h-12 sm:h-16 w-auto" src="assets/img/ciencias.svg"/></a>
+<a href="https://www.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="UNAM" class="h-12 sm:h-16 w-auto icon-invert" src="assets/img/unam.svg"/></a>
+<a href="https://www.fciencias.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="Facultad de Ciencias" class="h-12 sm:h-16 w-auto icon-invert" src="assets/img/ciencias.svg"/></a>
 </div>
-<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Licenciatura en Ciencias de la Computación</h3>
-<p class="text-[#5E81AC] dark:text-[#88C0D0] font-medium mb-4">Promedio: 9.58/10 · Avance en créditos: 71%</p>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="degree_title">Licenciatura en Ciencias de la Computación</h3>
 <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">UNAM, Facultad de Ciencias</p>
-<p class="text-gray-400 dark:text-gray-500 text-sm">Ago 2023 — Presente</p>
-<a class="inline-flex items-center justify-center gap-2 px-5 py-2.5 mt-6 border border-gray-200 dark:border-gray-700 text-sm font-medium rounded-full text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="materias.html">
-<i class="fa-solid fa-graduation-cap text-xs"></i>
-          Ver materias cursadas
-        </a>
+<p class="text-[#5E81AC] dark:text-[#88C0D0] font-medium mb-4" data-i18n-html="degree_gpa">Promedio: 9.58/10 · Avance en créditos: 71%</p>
+<p class="text-gray-400 dark:text-gray-500 text-sm" data-i18n="degree_dates">Ago 2023 — Presente</p>
 </div>
 <!-- Previous Education (smaller card) -->
 <div class="max-w-sm mx-auto bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 mb-20 soft-shadow text-center">
-<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Educación previa</p>
-<p class="text-sm font-medium text-gray-800 dark:text-gray-100">Estudio Técnico Especializado en Computación</p>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1" data-i18n="prev_edu_label">Educación previa</p>
+<p class="text-sm font-medium text-gray-800 dark:text-gray-100" data-i18n="prev_edu_title">Estudio Técnico Especializado en Computación</p>
 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Escuela Nacional Preparatoria No. 8 "Miguel E. Schulz", UNAM</p>
 <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">2020 — 2023</p>
 </div>
 <!-- Timeline Label -->
 <div class="flex items-center justify-center space-x-4 mb-16" id="proyectos">
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
-<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Proyectos</h2>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="nav_proyectos">Proyectos</h2>
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
 </div>
 <!-- Timeline -->
@@ -311,14 +317,14 @@
 <div class="order-1 md:w-5/12 mb-6 md:mb-0 w-full">
 <div class="bg-[#2E3440] p-6 rounded-2xl soft-shadow border border-[#4C566A] text-left">
 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC] text-white mb-3">
-<i class="fa-solid fa-star mr-2 text-[10px]"></i>Proyecto Principal
+<i class="fa-solid fa-star mr-2 text-[10px]"></i><span data-i18n="badge_featured">Proyecto Principal</span>
 </span>
 <h4 class="text-lg font-bold text-white mb-1">StockFlow API REST</h4>
 <p class="text-sm text-[#88C0D0] mb-4">Spring Boot &amp; PostgreSQL</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-[#D8DEE9]">Gestión de inventarios: proveedores, productos y stock, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos</p>
+<p class="text-[#D8DEE9]" data-i18n="stockflow_desc">Gestión de inventarios: proveedores, productos y stock, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -328,14 +334,15 @@
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">JPA</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Hibernate</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Spring Web</span>
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Docker</span>
 </div>
 </div>
 <div class="flex flex-wrap gap-3 pt-1">
 <a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium bg-white text-gray-900 hover:bg-gray-100 transition-colors" href="https://github.com/jromerog01/StockFlow-APIRest" target="_blank" rel="noopener noreferrer">
-<i class="fa-brands fa-github mr-2"></i>Ver código
+<i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
               </a>
 <a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-[#4C566A] text-[#88C0D0] hover:bg-[#3B4252] transition-colors" href="https://stockflow-api.jromerog.dev/swagger-ui/index.html" target="_blank" rel="noopener noreferrer">
-<i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>Ver demo
+<i class="fa-solid fa-arrow-up-right-from-square mr-2"></i><span data-i18n="btn_view_demo">Ver demo</span>
               </a>
 </div>
 </div>
@@ -353,12 +360,12 @@
 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC] text-white mb-3">
 <i class="fa-solid fa-server mr-2 text-[10px]"></i>Home Lab
 </span>
-<h4 class="text-lg font-bold text-white mb-1">Servidor Personal</h4>
+<h4 class="text-lg font-bold text-white mb-1" data-i18n="homelab_title">Servidor Personal</h4>
 <p class="text-sm text-[#88C0D0] mb-4">Ubuntu Server &amp; Docker</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-[#D8DEE9]">Autoalojo este portafolio y mis proyectos personales (incluyendo StockFlow) mediante Docker, para poder probarlos en vivo. También funciona como el cerebro de mi hogar inteligente con Home Assistant.</p>
+<p class="text-[#D8DEE9]" data-i18n="homelab_desc">Autoalojo este portafolio y mis proyectos personales (incluyendo StockFlow) mediante Docker, para poder probarlos en vivo. También funciona como el cerebro de mi hogar inteligente con Home Assistant.</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -381,14 +388,14 @@
 <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
 <div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
 <i class="fa-solid fa-server"></i>
-<span>Backend</span>
+<span data-i18n="label_backend">Backend</span>
 </div>
-<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Sistema Backend de Gestión de Eventos Multirrol</h4>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1" data-i18n="eventos_title">Sistema Backend de Gestión de Eventos Multirrol</h4>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Spring Boot &amp; PostgreSQL</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-gray-700 dark:text-gray-300">Conexión a PostgreSQL vía JDBC, operaciones CRUD completas sobre las tablas de la base de datos</p>
+<p class="text-gray-700 dark:text-gray-300" data-i18n="eventos_desc">Conexión a PostgreSQL vía JDBC, operaciones CRUD completas sobre las tablas de la base de datos</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -412,14 +419,14 @@
 <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
 <div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
 <i class="fa-solid fa-globe"></i>
-<span>Cliente-Servidor</span>
+<span data-i18n="label_cliente_servidor">Cliente-Servidor</span>
 </div>
-<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Tienda en Línea Multilenguaje</h4>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1" data-i18n="tienda_title">Tienda en Línea Multilenguaje</h4>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Java &amp; RMI</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-gray-700 dark:text-gray-300">Arquitectura cliente-servidor con RMI, internacionalización dinámica según nacionalidad del usuario, carrito de compras dinámico</p>
+<p class="text-gray-700 dark:text-gray-300" data-i18n="tienda_desc">Arquitectura cliente-servidor con RMI, internacionalización dinámica según nacionalidad del usuario, carrito de compras dinámico</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -438,14 +445,14 @@
 <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
 <div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
 <i class="fa-solid fa-book"></i>
-<span>MVC</span>
+<span data-i18n="label_mvc">MVC</span>
 </div>
-<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Gestor de Préstamos para Biblioteca</h4>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1" data-i18n="biblioteca_title">Gestor de Préstamos para Biblioteca</h4>
 <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Java &amp; MVC</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-gray-700 dark:text-gray-300">Roles de Bibliotecario y Usuario, patrón Modelo-Vista-Controlador, arquitectura cliente-servidor con Proxy</p>
+<p class="text-gray-700 dark:text-gray-300" data-i18n="biblioteca_desc">Roles de Bibliotecario y Usuario, patrón Modelo-Vista-Controlador, arquitectura cliente-servidor con Proxy</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -464,22 +471,22 @@
 </div>
 <!-- In Progress / Coming Soon -->
 <div class="max-w-4xl mx-auto mt-12">
-<p class="text-center text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-6">En proceso / Próximamente</p>
+<p class="text-center text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-6" data-i18n="inprogress_label">En proceso / Próximamente</p>
 <div class="grid sm:grid-cols-3 gap-4">
 <div class="border border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-5 text-center">
 <i class="fa-solid fa-layer-group text-gray-300 dark:text-gray-600 text-xl mb-2"></i>
-<p class="text-sm font-medium text-gray-600 dark:text-gray-300">App de Flashcards</p>
-<p class="text-xs text-gray-400 dark:text-gray-500 mt-1">Móvil &amp; Web</p>
+<p class="text-sm font-medium text-gray-600 dark:text-gray-300" data-i18n="flashcards_title">App de Flashcards</p>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-1" data-i18n="flashcards_sub">Móvil &amp; Web</p>
 </div>
 <div class="border border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-5 text-center">
 <i class="fa-solid fa-location-dot text-gray-300 dark:text-gray-600 text-xl mb-2"></i>
-<p class="text-sm font-medium text-gray-600 dark:text-gray-300">Localizador de Bibliotecas</p>
+<p class="text-sm font-medium text-gray-600 dark:text-gray-300" data-i18n="locator_title">Localizador de Bibliotecas</p>
 <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">UNAM Ciudad Universitaria</p>
 </div>
 <div class="border border-dashed border-gray-200 dark:border-gray-700 rounded-xl p-5 text-center">
 <i class="fa-solid fa-heart-pulse text-gray-300 dark:text-gray-600 text-xl mb-2"></i>
-<p class="text-sm font-medium text-gray-600 dark:text-gray-300">Panel de Datos de Apple Health</p>
-<p class="text-xs text-gray-400 dark:text-gray-500 mt-1">Dashboard Web</p>
+<p class="text-sm font-medium text-gray-600 dark:text-gray-300" data-i18n="health_title">Panel de Datos de Apple Health</p>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-1" data-i18n="health_sub">Dashboard Web</p>
 </div>
 </div>
 </div>
@@ -492,16 +499,16 @@
 <div class="text-center mb-16">
 <div class="flex items-center justify-center space-x-4 mb-4">
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
-<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Proyectos</h2>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="nav_proyectos">Proyectos</h2>
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
 </div>
-<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">Soluciones backend construidas de punta a punta</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide" data-i18n="proj2_subtitle">Soluciones backend construidas de punta a punta</p>
 </div>
 <!-- Coming Soon -->
 <div class="max-w-5xl mx-auto bg-white dark:bg-gray-800 border border-dashed border-gray-200 dark:border-gray-700 rounded-2xl p-12 text-center">
 <i class="fa-solid fa-hammer text-3xl text-gray-300 dark:text-gray-600 mb-4"></i>
-<p class="text-gray-500 dark:text-gray-400 font-medium">Próximamente más proyectos</p>
-<p class="text-sm text-gray-400 dark:text-gray-500 mt-1">Mientras tanto, puedes ver StockFlow API REST en <a class="text-blue-500 dark:text-blue-400 hover:underline" href="#formacion">Formación Académica</a>.</p>
+<p class="text-gray-500 dark:text-gray-400 font-medium" data-i18n="proj2_comingsoon">Próximamente más proyectos</p>
+<p class="text-sm text-gray-400 dark:text-gray-500 mt-1" data-i18n-html="proj2_meanwhile">Mientras tanto, puedes ver StockFlow API REST en <a class="text-blue-500 dark:text-blue-400 hover:underline" href="#formacion">Formación Académica</a>.</p>
 </div>
 </div>
 </section>
@@ -510,4 +517,5 @@
 <!-- END: Main Content -->
 <script defer="" src="js/typewriter.js"></script>
 <script defer="" src="js/theme.js"></script>
+<script defer="" src="js/i18n.js"></script>
 </body></html>
