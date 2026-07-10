@@ -32,3 +32,7 @@ body {
 .dark .soft-shadow {
   box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
 }
+
+.dark .icon-invert {
+  filter: invert(1);
+}
