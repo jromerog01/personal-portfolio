@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StockFlow API REST - Jesús Romero</title>
+<!-- Set theme before first paint to avoid a light/dark flash -->
+<script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+<!-- Font Awesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 sm:px-4 rounded-full" href="../index.html">
+<i class="fa-solid fa-house text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#acerca">
+<i class="fa-regular fa-user text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="../index.html#proyectos">
+<i class="fa-regular fa-folder text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#">
+<i class="fa-solid fa-wrench text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_servicios">Servicios</span>
+</a>
+<span aria-hidden="true" class="w-px h-6 bg-gray-200 dark:bg-gray-700 shrink-0"></span>
+<button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
+<i class="fa-solid fa-moon text-sm dark:hidden"></i>
+<i class="fa-solid fa-sun text-sm hidden dark:inline"></i>
+</button>
+<button aria-label="Cambiar idioma" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="lang-toggle" type="button">EN</button>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow flex flex-col w-full pt-24">
+<!-- BEGIN: Hero (light) -->
+<section class="w-full px-6 md:px-12 lg:px-24 pt-8 pb-12 max-w-7xl mx-auto">
+<div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+<a class="inline-flex items-center gap-2 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="../index.html#proyectos">
+<i class="fa-solid fa-arrow-left text-[10px]"></i>
+<span data-i18n="sf_back">Volver al portafolio</span>
+</a>
+<div class="inline-flex items-center gap-1.5 text-xs font-mono">
+<a class="w-6 h-6 flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors" href="stockflow.html">1</a>
+<a class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 pointer-events-none" href="stockflow-v2.html">2</a>
+<a class="w-6 h-6 flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors" href="stockflow-v4.html">3</a>
+</div>
+</div>
+<div class="grid lg:grid-cols-5 gap-10 items-center">
+<div class="lg:col-span-2">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] mb-5">
+<i class="fa-solid fa-star text-[10px]"></i><span data-i18n="sf_kicker">Proyecto Principal</span>
+</span>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">StockFlow API REST</h1>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="sf_subtitle">Sistema de gestión de inventarios construido con Spring Boot y PostgreSQL, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos.</p>
+<div class="flex flex-wrap gap-3">
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white transition-colors" href="https://github.com/jromerog01/StockFlow-APIRest" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
+</a>
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="https://stockflow-api.jromerog.dev/swagger-ui/index.html" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-arrow-up-right-from-square mr-2"></i><span data-i18n="btn_view_demo">Ver demo</span>
+</a>
+</div>
+</div>
+<!-- BEGIN: Terminal / Code Snippet (reuses homepage editor motif) -->
+<div class="lg:col-span-3 w-full">
+<div class="bg-[#2E3440] rounded-xl overflow-hidden soft-shadow border border-[#4C566A]">
+<div class="bg-[#3B4252] px-4 py-3 flex items-center justify-between border-b border-[#4C566A]">
+<div class="flex space-x-2">
+<div class="w-3 h-3 rounded-full bg-[#BF616A]"></div>
+<div class="w-3 h-3 rounded-full bg-[#EBCB8B]"></div>
+<div class="w-3 h-3 rounded-full bg-[#A3BE8C]"></div>
+</div>
+<span class="text-[#4C566A] text-xs font-mono">sales-controller</span>
+</div>
+<div class="p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+<p class="text-[#616E88] mb-1"><span data-i18n="sf_request_label">Petición</span></p>
+<p class="mb-4"><span class="text-[#A3BE8C]">POST</span> <span class="text-[#88C0D0]">/api/sales</span></p>
+<pre class="text-[#D8DEE9] whitespace-pre mb-4">{
+  <span class="text-[#88C0D0]">"productId"</span>: <span class="text-[#B48EAD]">17</span>,
+  <span class="text-[#88C0D0]">"quantity"</span>: <span class="text-[#B48EAD]">3</span>
+}</pre>
+<p class="text-[#616E88] mb-1"><span data-i18n="sf_response_label">Respuesta</span></p>
+<pre class="text-[#D8DEE9] whitespace-pre">{
+  <span class="text-[#88C0D0]">"saleId"</span>: <span class="text-[#B48EAD]">204</span>,
+  <span class="text-[#88C0D0]">"total"</span>: <span class="text-[#B48EAD]">450.00</span>,
+  <span class="text-[#88C0D0]">"stockRemaining"</span>: <span class="text-[#B48EAD]">12</span>
+}</pre>
+</div>
+</div>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-3 text-center" data-i18n="sf_terminal_caption">Ejemplo real: registrar una venta descuenta el stock automáticamente</p>
+</div>
+<!-- END: Terminal / Code Snippet -->
+</div>
+</section>
+<!-- END: Hero -->
+<!-- BEGIN: Docs Layout (sticky sidebar + content) -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-24 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-[220px_1fr] gap-12 border-t border-gray-100 dark:border-gray-800 pt-12">
+<!-- BEGIN: Sticky Sidebar -->
+<aside class="hidden lg:block">
+<nav class="sticky top-28 space-y-1 text-sm">
+<a class="block px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#resumen" data-i18n="sf_nav_overview">Resumen</a>
+<a class="block px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#funcionalidades" data-i18n="sf_nav_features">Funcionalidades</a>
+<a class="block px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#stack" data-i18n="sf_nav_stack">Stack</a>
+<a class="block px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#arquitectura" data-i18n="sf_nav_arch">Arquitectura</a>
+<a class="block px-3 py-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#api" data-i18n="sf_nav_api">API</a>
+</nav>
+</aside>
+<!-- END: Sticky Sidebar -->
+<!-- BEGIN: Content -->
+<div class="space-y-20 min-w-0">
+<!-- Overview + Facts -->
+<div class="scroll-mt-28" id="resumen">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_overview_heading">Resumen</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-4">
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="sf_overview_p1">StockFlow API REST es un sistema de gestión de inventarios pensado para pequeños y medianos negocios: administra proveedores, catálogo de productos y niveles de stock desde un único backend.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="sf_overview_p2">Además de la gestión de inventario, StockFlow funciona como punto de venta (POS): registra ventas, actualiza el stock automáticamente y mantiene un historial completo de movimientos para trazabilidad total.</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow h-fit grid grid-cols-2 md:grid-cols-1 gap-4 text-sm">
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_role_label">Rol</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="sf_facts_role_value">Desarrollo individual</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_status_label">Estado</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="sf_facts_status_value">En producción (self-hosted)</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_docs_label">Documentación</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="sf_facts_docs_value">Swagger / OpenAPI</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_deploy_label">Despliegue</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="sf_facts_deploy_value">Docker en servidor personal</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Features: bento grid -->
+<div class="scroll-mt-28" id="funcionalidades">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_features_heading">Funcionalidades clave</h2>
+<div class="grid sm:grid-cols-2 gap-4 sm:auto-rows-[minmax(0,1fr)]">
+<div class="sm:row-span-2 bg-[#2E3440] border border-[#4C566A] rounded-xl p-6 flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-cash-register"></i></div>
+<div>
+<h3 class="font-bold text-white mb-1" data-i18n="sf_feature3_title">Punto de Venta (POS)</h3>
+<p class="text-sm text-[#D8DEE9]" data-i18n="sf_feature3_desc">Registro de ventas que descuenta stock automáticamente y calcula totales al momento.</p>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-boxes-stacked"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="sf_feature2_title">Catálogo de Productos y Stock</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="sf_feature2_desc">Control de existencias en tiempo real, con actualización automática ante cada movimiento.</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-clock-rotate-left"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="sf_feature4_title">Historial de Movimientos</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="sf_feature4_desc">Trazabilidad completa de entradas y salidas de inventario para auditoría y reportes.</p>
+</div>
+<div class="sm:col-span-2 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 flex items-center gap-4">
+<div class="w-10 h-10 shrink-0 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center"><i class="fa-solid fa-truck-field"></i></div>
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="sf_feature1_title">Gestión de Proveedores</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="sf_feature1_desc">Alta, edición y consulta de proveedores asociados a los productos del inventario.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stack: table style -->
+<div class="scroll-mt-28" id="stack">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_stack_heading">Stack Tecnológico</h2>
+<div class="border border-gray-100 dark:border-gray-800 rounded-xl divide-y divide-gray-100 dark:divide-gray-800 overflow-hidden">
+<div class="flex items-center gap-4 px-5 py-4 bg-white dark:bg-gray-900">
+<img alt="Java" class="w-6 h-6" src="../assets/img/tech/java.svg"/>
+<span class="font-medium text-gray-800 dark:text-gray-100">Java</span>
+<span class="ml-auto text-xs text-gray-400 dark:text-gray-500 font-mono">language</span>
+</div>
+<div class="flex items-center gap-4 px-5 py-4 bg-white dark:bg-gray-900">
+<img alt="Spring Boot" class="w-6 h-6" src="../assets/img/tech/spring-boot.svg"/>
+<span class="font-medium text-gray-800 dark:text-gray-100">Spring Boot · Spring Web</span>
+<span class="ml-auto text-xs text-gray-400 dark:text-gray-500 font-mono">framework</span>
+</div>
+<div class="flex items-center gap-4 px-5 py-4 bg-white dark:bg-gray-900">
+<img alt="PostgreSQL" class="w-6 h-6" src="../assets/img/tech/postgresql.svg"/>
+<span class="font-medium text-gray-800 dark:text-gray-100">PostgreSQL</span>
+<span class="ml-auto text-xs text-gray-400 dark:text-gray-500 font-mono">database</span>
+</div>
+<div class="flex items-center gap-4 px-5 py-4 bg-white dark:bg-gray-900">
+<i class="fa-solid fa-diagram-project w-6 text-center text-gray-500 dark:text-gray-400"></i>
+<span class="font-medium text-gray-800 dark:text-gray-100">JPA · Hibernate</span>
+<span class="ml-auto text-xs text-gray-400 dark:text-gray-500 font-mono">ORM</span>
+</div>
+<div class="flex items-center gap-4 px-5 py-4 bg-white dark:bg-gray-900">
+<i class="fa-solid fa-book w-6 text-center text-gray-500 dark:text-gray-400"></i>
+<span class="font-medium text-gray-800 dark:text-gray-100">Swagger / OpenAPI</span>
+<span class="ml-auto text-xs text-gray-400 dark:text-gray-500 font-mono">docs</span>
+</div>
+<div class="flex items-center gap-4 px-5 py-4 bg-white dark:bg-gray-900">
+<i class="fa-brands fa-docker w-6 text-center text-lg text-[#2496ED]"></i>
+<span class="font-medium text-gray-800 dark:text-gray-100">Docker</span>
+<span class="ml-auto text-xs text-gray-400 dark:text-gray-500 font-mono">deploy</span>
+</div>
+</div>
+</div>
+<!-- Architecture -->
+<div class="scroll-mt-28" id="arquitectura">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_arch_heading">Arquitectura</h2>
+<ol class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="shrink-0 w-7 h-7 rounded-full bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] text-xs font-bold flex items-center justify-center">1</span>
+<span class="text-gray-600 dark:text-gray-300 pt-1" data-i18n="sf_arch1">API REST construida con Spring Boot y Spring Web</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="shrink-0 w-7 h-7 rounded-full bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] text-xs font-bold flex items-center justify-center">2</span>
+<span class="text-gray-600 dark:text-gray-300 pt-1" data-i18n="sf_arch2">Persistencia con JPA / Hibernate sobre PostgreSQL</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="shrink-0 w-7 h-7 rounded-full bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] text-xs font-bold flex items-center justify-center">3</span>
+<span class="text-gray-600 dark:text-gray-300 pt-1" data-i18n="sf_arch3">Documentación interactiva con Swagger / OpenAPI</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="shrink-0 w-7 h-7 rounded-full bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] text-xs font-bold flex items-center justify-center">4</span>
+<span class="text-gray-600 dark:text-gray-300 pt-1" data-i18n="sf_arch4">Contenedorizada con Docker y desplegada en el home lab personal</span>
+</li>
+</ol>
+</div>
+<!-- API callout -->
+<div class="scroll-mt-28" id="api">
+<div class="bg-[#2E3440] rounded-2xl p-8 sm:p-10 soft-shadow border border-[#4C566A] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+<div>
+<h3 class="text-lg font-bold text-white mb-2" data-i18n="sf_docs_heading">Documentación de la API</h3>
+<p class="text-sm text-[#D8DEE9] max-w-lg" data-i18n="sf_docs_desc">Explora todos los endpoints, modelos de datos y prueba las peticiones directamente desde Swagger UI.</p>
+</div>
+<a class="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-white text-gray-900 hover:bg-gray-100 transition-colors" href="https://stockflow-api.jromerog.dev/swagger-ui/index.html" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-book mr-2"></i><span data-i18n="btn_view_demo">Ver demo</span>
+</a>
+</div>
+</div>
+<!-- Back CTA -->
+<div class="text-center border-t border-gray-100 dark:border-gray-800 pt-16">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="sf_cta_heading">¿Quieres ver más proyectos?</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6" data-i18n="sf_cta_desc">Regresa al portafolio para conocer el resto de mi trabajo.</p>
+<a class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:underline" href="../index.html#proyectos">
+<i class="fa-solid fa-arrow-left text-xs"></i>
+<span data-i18n="sf_back">Volver al portafolio</span>
+</a>
+</div>
+</div>
+<!-- END: Content -->
+</div>
+</section>
+<!-- END: Docs Layout -->
+</main>
+<!-- END: Main Content -->
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../js/i18n.js"></script>
+</body></html>
