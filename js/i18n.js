@@ -3,6 +3,7 @@ const translations = {
     nav_inicio: "Inicio",
     nav_acerca: "Acerca",
     nav_proyectos: "Proyectos",
+    nav_servicios: "Servicios",
     nav_formacion: "Formación",
     hero_greeting: "Hola!, soy",
     hero_desc:
@@ -138,6 +139,7 @@ const translations = {
 
     sf_back: "Volver al portafolio",
     sf_kicker: "Proyecto Principal",
+    sf_live_badge: "API en vivo",
     sf_subtitle:
       "Sistema de gestión de inventarios construido con Spring Boot y PostgreSQL, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos.",
     sf_stat_type: "REST API",
@@ -266,6 +268,7 @@ const translations = {
     nav_inicio: "Home",
     nav_acerca: "About",
     nav_proyectos: "Projects",
+    nav_servicios: "Services",
     nav_formacion: "Education",
     hero_greeting: "Hi!, I'm",
     hero_desc:
@@ -401,6 +404,7 @@ const translations = {
 
     sf_back: "Back to portfolio",
     sf_kicker: "Featured Project",
+    sf_live_badge: "Live API",
     sf_subtitle:
       "Inventory management system built with Spring Boot and PostgreSQL, also working as a point of sale (POS) with sales tracking and movement history.",
     sf_stat_type: "REST API",

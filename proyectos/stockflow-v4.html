@@ -54,24 +54,32 @@
 <!-- END: Navigation -->
 <!-- BEGIN: Main Content -->
 <main class="flex-grow flex flex-col w-full">
-<!-- BEGIN: Hero (centered, minimal — from Design 3, Nord background from Design 1) -->
-<section class="w-full bg-[#2E3440] border-b border-[#4C566A]">
-<div class="px-6 md:px-12 lg:px-24 pt-24 sm:pt-32 pb-8 max-w-4xl mx-auto text-center">
-<div class="flex items-center justify-between mb-6 sm:mb-10">
+<!-- BEGIN: Hero (Nord dark, full-bleed — flagship project) -->
+<section class="w-full bg-[#2E3440] pt-20 sm:pt-28 pb-16 px-6 md:px-12 lg:px-24 border-b border-[#4C566A]">
+<div class="max-w-7xl mx-auto">
+<div class="flex items-center flex-wrap gap-4 mb-6 sm:mb-8">
 <a class="inline-flex items-center gap-2 text-xs font-medium text-[#88C0D0] hover:text-white transition-colors" href="../index.html#proyectos">
 <i class="fa-solid fa-arrow-left text-[10px]"></i>
 <span data-i18n="sf_back">Volver al portafolio</span>
 </a>
-<div class="inline-flex items-center gap-1.5 text-xs font-mono">
-<a class="w-6 h-6 flex items-center justify-center rounded-full border border-[#4C566A] text-[#4C566A] hover:text-white hover:border-[#88C0D0] transition-colors" href="stockflow.html">1</a>
-<a class="w-6 h-6 flex items-center justify-center rounded-full border border-[#4C566A] text-[#4C566A] hover:text-white hover:border-[#88C0D0] transition-colors" href="stockflow-v2.html">2</a>
-<a class="w-6 h-6 flex items-center justify-center rounded-full bg-[#5E81AC] text-white pointer-events-none" href="stockflow-v4.html">3</a>
 </div>
+<div class="grid lg:grid-cols-5 gap-10 lg:gap-12 items-center">
+<div class="lg:col-span-2 min-w-0">
+<div class="flex flex-wrap items-center gap-3 mb-5">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC] text-white">
+<i class="fa-solid fa-star mr-2 text-[10px]"></i><span data-i18n="sf_kicker">Proyecto Principal</span>
+</span>
+<a class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border border-[#4C566A] text-[#A3BE8C] hover:bg-[#3B4252] transition-colors" href="https://stockflow-api.jromerog.dev/swagger-ui/index.html" target="_blank" rel="noopener noreferrer">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A3BE8C] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#A3BE8C]"></span>
+</span>
+<span data-i18n="sf_live_badge">API en vivo</span>
+</a>
 </div>
-<p class="text-xs font-bold tracking-[0.2em] text-[#88C0D0] uppercase mb-4" data-i18n="sf_kicker">Proyecto Principal</p>
-<h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">StockFlow API REST</h1>
-<p class="text-lg text-[#D8DEE9] leading-relaxed max-w-2xl mx-auto mb-10" data-i18n="sf_subtitle">Sistema de gestión de inventarios construido con Spring Boot y PostgreSQL, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos.</p>
-<div class="flex flex-wrap justify-center gap-3">
+<h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">StockFlow API REST</h1>
+<p class="text-[#D8DEE9] leading-relaxed mb-8" data-i18n="sf_subtitle">Sistema de gestión de inventarios construido con Spring Boot y PostgreSQL, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos.</p>
+<div class="flex flex-wrap gap-3">
 <a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-white text-gray-900 hover:bg-gray-100 transition-colors" href="https://github.com/jromerog01/StockFlow-APIRest" target="_blank" rel="noopener noreferrer">
 <i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
 </a>
@@ -80,20 +88,78 @@
 </a>
 </div>
 </div>
-<!-- Tech Stack strip -->
-<div class="px-6 md:px-12 lg:px-24 pb-12 max-w-4xl mx-auto text-center">
-<div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
+<!-- BEGIN: Terminal / API request-response (site editor motif) -->
+<div class="lg:col-span-3 w-full min-w-0">
+<div class="bg-[#242933] rounded-xl overflow-hidden border border-[#4C566A] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
+<!-- Window chrome -->
+<div class="bg-[#3B4252] px-4 py-3 flex items-center gap-3 border-b border-[#434C5E]">
+<div class="flex space-x-2 shrink-0">
+<div class="w-3 h-3 rounded-full bg-[#BF616A]"></div>
+<div class="w-3 h-3 rounded-full bg-[#EBCB8B]"></div>
+<div class="w-3 h-3 rounded-full bg-[#A3BE8C]"></div>
+</div>
+<div class="flex-1 min-w-0 flex items-center justify-center">
+<span class="inline-flex items-center gap-2 max-w-full px-3 py-1 rounded-md bg-[#2E3440] border border-[#434C5E] font-mono text-[11px] sm:text-xs">
+<i class="fa-solid fa-lock text-[9px] text-[#A3BE8C] shrink-0"></i>
+<span class="truncate text-[#D8DEE9]">stockflow-api.jromerog.dev<span class="text-[#616E88]">/api/sales</span></span>
+</span>
+</div>
+<span class="shrink-0 w-3"></span>
+</div>
+<!-- Request -->
+<div class="px-5 pt-4 pb-4 font-mono text-xs sm:text-sm leading-relaxed">
+<div class="flex items-center gap-2 mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-[#A3BE8C] text-[#2E3440] text-[10px] sm:text-xs font-bold tracking-wide">POST</span>
+<span class="text-[#ECEFF4] truncate">/api/sales</span>
+<span class="ml-auto text-[10px] uppercase tracking-wider text-[#616E88] hidden sm:inline" data-i18n="sf_request_label">Petición</span>
+</div>
+<div class="overflow-x-auto">
+<pre class="text-[#D8DEE9] whitespace-pre">{
+  <span class="text-[#8FBCBB]">"productId"</span>: <span class="text-[#B48EAD]">17</span>,
+  <span class="text-[#8FBCBB]">"quantity"</span>: <span class="text-[#B48EAD]">3</span>
+}</pre>
+</div>
+</div>
+<!-- Response -->
+<div class="border-t border-[#3B4252] bg-[#2B303B] px-5 pt-4 pb-5 font-mono text-xs sm:text-sm leading-relaxed">
+<div class="flex items-center gap-2 mb-3 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#A3BE8C]/15 border border-[#A3BE8C]/40 text-[#A3BE8C] text-[10px] sm:text-xs font-bold tracking-wide">
+<i class="fa-solid fa-check text-[9px]"></i>201 Created
+</span>
+<span class="text-[10px] sm:text-xs text-[#616E88]">42 ms</span>
+<span class="ml-auto text-[10px] uppercase tracking-wider text-[#616E88] hidden sm:inline" data-i18n="sf_response_label">Respuesta</span>
+</div>
+<div class="overflow-x-auto">
+<pre class="text-[#D8DEE9] whitespace-pre">{
+  <span class="text-[#8FBCBB]">"saleId"</span>: <span class="text-[#B48EAD]">204</span>,
+  <span class="text-[#8FBCBB]">"productName"</span>: <span class="text-[#A3BE8C]">"Teclado mecánico"</span>,
+  <span class="text-[#8FBCBB]">"quantity"</span>: <span class="text-[#B48EAD]">3</span>,
+  <span class="text-[#8FBCBB]">"total"</span>: <span class="text-[#B48EAD]">450.00</span>,
+  <span class="text-[#8FBCBB]">"stockRemaining"</span>: <span class="text-[#B48EAD]">12</span>,
+  <span class="text-[#8FBCBB]">"createdAt"</span>: <span class="text-[#A3BE8C]">"2026-07-12T13:04:22Z"</span>
+}</pre>
+</div>
+</div>
+</div>
+<p class="text-xs text-[#616E88] mt-3 text-center" data-i18n="sf_terminal_caption">Ejemplo real: registrar una venta descuenta el stock automáticamente</p>
+</div>
+<!-- END: Terminal / API request-response -->
+</div>
+<div class="mt-12 pt-8 border-t border-[#3B4252]">
+<p class="text-xs font-bold tracking-wider text-[#616E88] uppercase mb-4" data-i18n="sf_stack_strip_label">Construido con</p>
+<div class="flex flex-wrap items-center gap-x-8 gap-y-4">
 <img alt="Java" class="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity" src="../assets/img/tech/java.svg"/>
 <img alt="Spring Boot" class="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity" src="../assets/img/tech/spring-boot.svg"/>
 <img alt="PostgreSQL" class="h-7 w-auto opacity-80 hover:opacity-100 transition-opacity" src="../assets/img/tech/postgresql.svg"/>
 <i class="fa-brands fa-docker text-2xl text-[#2496ED] opacity-80 hover:opacity-100 transition-opacity"></i>
 </div>
 </div>
+</div>
 </section>
 <!-- END: Hero -->
 <!-- BEGIN: Docs Layout (sticky sidebar — from Design 2) -->
 <section class="w-full px-6 md:px-12 lg:px-24 pb-20 max-w-7xl mx-auto">
-<div class="grid lg:grid-cols-[220px_1fr] gap-12 border-t border-gray-100 dark:border-gray-800 pt-16">
+<div class="grid lg:grid-cols-[220px_1fr] gap-12 pt-16">
 <!-- BEGIN: Sticky Sidebar -->
 <aside class="hidden lg:block">
 <nav class="sticky top-28 space-y-1 text-sm" id="sidebar-nav">
@@ -277,6 +343,7 @@
 </div>
 </div>
 <!-- END: Content -->
+</div>
 </div>
 </section>
 <!-- END: Docs Layout -->
