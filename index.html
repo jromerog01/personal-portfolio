@@ -22,26 +22,26 @@
   </script>
 <!-- Font Awesome for icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="css/styles.css?v=2" rel="stylesheet"/>
+<link href="css/styles.css?v=3" rel="stylesheet"/>
 </head>
 <body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 <!-- BEGIN: Navigation -->
-<nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
-<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="#">
+<nav aria-label="Navegación principal" class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]" id="floating-nav">
+<a aria-current="page" class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="#inicio">
 <i class="fa-solid fa-house text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
 </a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="#acerca">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="#acerca">
 <i class="fa-regular fa-user text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
 </a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="#proyectos">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="#formacion">
+<i class="fa-solid fa-graduation-cap text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_formacion">Formación</span>
+</a>
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="#proyectos">
 <i class="fa-regular fa-folder text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
-</a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="#">
-<i class="fa-solid fa-wrench text-xs"></i>
-<span class="hidden sm:inline" data-i18n="nav_servicios">Servicios</span>
 </a>
 <span aria-hidden="true" class="w-px h-6 bg-gray-200 dark:bg-gray-700 shrink-0"></span>
 <button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
@@ -54,7 +54,7 @@
 <!-- BEGIN: Main Content -->
 <main class="flex-grow flex flex-col items-center pt-24 pb-12 w-full">
 <!-- BEGIN: Hero Section -->
-<section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full">
+<section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full" id="inicio">
 <div class="flex flex-col xl:flex-row items-center justify-between w-full gap-16 xl:gap-8">
 <!-- BEGIN: Left Column (Text & Buttons) -->
 <div class="flex-1 max-w-xl min-w-0 space-y-8">
@@ -427,6 +427,11 @@
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Home Assistant</span>
 </div>
 </div>
+<div class="flex flex-wrap gap-3 pt-1">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-[#4C566A] text-[#88C0D0] hover:bg-[#3B4252] transition-colors" href="proyectos/homelab.html">
+<i class="fa-solid fa-circle-info mr-2"></i><span data-i18n="btn_view_details">Ver detalles</span>
+              </a>
+</div>
 </div>
 </div>
 </div>
@@ -577,6 +582,7 @@
 <script defer="" src="js/typewriter.js?v=2"></script>
 <script defer="" src="js/theme.js?v=2"></script>
 <script defer="" src="js/i18n.js?v=2"></script>
+<script defer="" src="js/navigation.js?v=1"></script>
 <script defer="">
     (function () {
       var toggle = document.getElementById('tech-toggle');

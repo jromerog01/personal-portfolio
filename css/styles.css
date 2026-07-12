@@ -37,6 +37,46 @@ body {
   box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
 }
 
+/* Active section in the floating navigation */
+.nav-link {
+  color: #6b7280;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: color 200ms ease, background-color 200ms ease, padding 200ms ease;
+}
+
+.nav-link:hover {
+  color: #111827;
+}
+
+.nav-link[aria-current="page"] {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #fff;
+  background-color: #111827;
+  font-weight: 600;
+}
+
+.dark .nav-link {
+  color: #9ca3af;
+}
+
+.dark .nav-link:hover {
+  color: #fff;
+}
+
+.dark .nav-link[aria-current="page"] {
+  color: #111827;
+  background-color: #f3f4f6;
+}
+
+#inicio,
+#acerca,
+#formacion,
+#proyectos {
+  scroll-margin-top: 7rem;
+}
+
 .dark .icon-invert {
   filter: invert(1);
 }
