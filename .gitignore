@@ -14,3 +14,8 @@ Thumbs.db
 
 # Assets
 assets/materias.png
+
+# Local-only files
+PROFILE_README.md
+PROFILE_README.html
+PROFILE_README_files/

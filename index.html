@@ -53,10 +53,10 @@
 </nav>
 <!-- END: Navigation -->
 <!-- BEGIN: Main Content -->
-<main class="flex-grow flex flex-col items-center pt-24 pb-12 w-full">
+<main class="flex-grow flex flex-col items-center pt-24 md:pt-36 xl:pt-24 pb-12 w-full">
 <!-- BEGIN: Hero Section -->
 <section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full" id="inicio">
-<div class="flex flex-col xl:flex-row items-center justify-between w-full gap-16 xl:gap-8">
+<div class="flex flex-col lg:flex-row items-center justify-between w-full gap-16 lg:gap-8">
 <!-- BEGIN: Left Column (Text & Buttons) -->
 <div class="flex-1 max-w-xl min-w-0 space-y-8">
 <!-- Header Text -->
@@ -65,7 +65,7 @@
             <span data-i18n="hero_greeting">Hola, soy</span> <span class="text-gray-400 dark:text-gray-500">Jesús</span>
 </h1>
 <!-- Typewriter Effect Container -->
-<div class="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-normal xl:whitespace-nowrap">
+<div class="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-normal lg:whitespace-nowrap">
 <span id="typewriter-text">Ciencias de la Computación</span><span class="typing-cursor"></span>
 </div>
 </div>
@@ -182,12 +182,22 @@
         </p>
 </div>
 <!-- Languages -->
-<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-<i class="fa-solid fa-language text-sm"></i>
-<span class="text-sm font-medium" data-i18n="lang_english">Inglés — B2 (Upper Intermediate)</span>
+<div>
+<p class="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2" data-i18n="section_languages">Idiomas</p>
+<div class="flex flex-wrap gap-2">
+<div class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-3 pr-4 py-1.5 soft-shadow">
+<i class="fa-solid fa-language text-sm text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="lang_spanish">Español — Nativo</span>
+</div>
+<div class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-3 pr-4 py-1.5 soft-shadow">
+<i class="fa-solid fa-language text-sm text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="lang_english">Inglés — B2 (Upper Intermediate)</span>
+</div>
+</div>
 </div>
 <!-- Tech Stack -->
 <div class="space-y-3">
+<p class="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2" data-i18n="section_tech">Tecnologías</p>
 <!-- Primary Stack -->
 <div class="flex flex-wrap gap-2">
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.java.com/" target="_blank" rel="noopener noreferrer">
@@ -206,20 +216,6 @@
 <hr class="border-gray-200 dark:border-gray-800 w-full"/>
 <!-- Rest of the Stack -->
 <div class="flex flex-col gap-2">
-<div class="flex flex-wrap gap-2">
-<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
-<img alt="Python" class="w-5 h-5" src="assets/img/tech/python.svg"/>
-<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Python</span>
-</a>
-<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">
-<img alt="Django" class="w-5 h-5" src="assets/img/tech/django.svg"/>
-<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Django</span>
-</a>
-<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer">
-<img alt="SQLite" class="w-5 h-5" src="assets/img/tech/sqlite.svg"/>
-<span class="text-xs font-medium text-gray-600 dark:text-gray-300">SQLite</span>
-</a>
-</div>
 <div class="flex flex-wrap gap-2">
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">
 <img alt="Fedora" class="w-5 h-5" src="assets/img/tech/fedora.svg"/>
@@ -252,9 +248,17 @@
 <div class="overflow-hidden">
 <div class="flex flex-col gap-2 pt-2">
 <div class="flex flex-wrap gap-2">
-<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.latex-project.org/" target="_blank" rel="noopener noreferrer">
-<img alt="LaTeX" class="h-3.5 w-auto icon-invert" src="assets/img/tech/latex.svg"/>
-<span class="text-xs font-medium text-gray-600 dark:text-gray-300">LaTeX</span>
+<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+<img alt="Python" class="w-5 h-5" src="assets/img/tech/python.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Python</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">
+<img alt="Django" class="w-5 h-5" src="assets/img/tech/django.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Django</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.sqlite.org/" target="_blank" rel="noopener noreferrer">
+<img alt="SQLite" class="w-5 h-5" src="assets/img/tech/sqlite.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">SQLite</span>
 </a>
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://jupyter.org/" target="_blank" rel="noopener noreferrer">
 <img alt="Jupyter Notebooks" class="w-5 h-5" src="assets/img/tech/jupyterNotebook.svg"/>
@@ -273,16 +277,6 @@
 <a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://antigravity.google/" target="_blank" rel="noopener noreferrer">
 <img alt="Antigravity" class="w-5 h-5" src="assets/img/tech/antigravity.svg"/>
 <span class="text-xs font-medium text-gray-600 dark:text-gray-300">Antigravity</span>
-</a>
-</div>
-<div class="flex flex-wrap gap-2">
-<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">
-<img alt="VS Code" class="w-5 h-5" src="assets/img/tech/vsc.svg"/>
-<span class="text-xs font-medium text-gray-600 dark:text-gray-300">VS Code</span>
-</a>
-<a class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow hover:-translate-y-0.5 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.jetbrains.com/" target="_blank" rel="noopener noreferrer">
-<img alt="JetBrains" class="w-5 h-5" src="assets/img/tech/jetbrains.svg"/>
-<span class="text-xs font-medium text-gray-600 dark:text-gray-300">JetBrains IDE's</span>
 </a>
 </div>
 </div>
@@ -330,7 +324,7 @@
 </div>
 <!-- Accent color: using Nord blue (#5E81AC / #88C0D0 dark) instead of Tailwind blue-500/blue-400 in this section. To revert, swap those hex values back for text-blue-500 dark:text-blue-400 (and border-blue-500 dark:border-blue-400 for the timeline dots). -->
 <!-- Education Header -->
-<div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 sm:p-8 mb-6 soft-shadow text-center">
+<div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-5 sm:p-8 soft-shadow text-center">
 <div class="flex items-center justify-center flex-wrap gap-4 sm:gap-8 mb-6">
 <a href="https://www.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="UNAM" class="h-12 sm:h-16 w-auto icon-invert" src="assets/img/escuelas/unam.svg"/></a>
 <a href="https://www.fciencias.unam.mx/" target="_blank" rel="noopener noreferrer"><img alt="Facultad de Ciencias" class="h-12 sm:h-16 w-auto icon-invert" src="assets/img/escuelas/ciencias.svg"/></a>
@@ -340,6 +334,10 @@
 <p class="text-[#5E81AC] dark:text-[#88C0D0] font-medium mb-4" data-i18n-html="degree_gpa">Promedio: 9.58/10 · Avance en créditos: 71%</p>
 <p class="text-gray-400 dark:text-gray-500 text-sm" data-i18n="degree_dates">Ago 2023 — Presente</p>
 </div>
+<!-- Connector line -->
+<div class="flex justify-center">
+<div class="w-px h-10 bg-gray-200 dark:bg-gray-700"></div>
+</div>
 <!-- Previous Education (smaller card) -->
 <div class="max-w-sm mx-auto bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 mb-20 soft-shadow text-center">
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1" data-i18n="prev_edu_label">Educación previa</p>
@@ -348,10 +346,13 @@
 <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">2020 — 2023</p>
 </div>
 <!-- Timeline Label -->
-<div class="flex items-center justify-center space-x-4 mb-16" id="proyectos">
+<div class="text-center mb-16" id="proyectos">
+<div class="flex items-center justify-center space-x-4 mb-4">
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="nav_proyectos">Proyectos</h2>
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide" data-i18n="proj2_subtitle">Soluciones backend construidas de punta a punta</p>
 </div>
 <!-- Timeline -->
 <div class="relative max-w-4xl mx-auto">
@@ -365,7 +366,7 @@
 <i class="fa-solid fa-star mr-2 text-[10px]"></i><span data-i18n="badge_featured">Proyecto Principal</span>
 </span>
 <h4 class="text-lg font-bold text-white mb-1">
-<a class="hover:text-[#88C0D0] transition-colors" href="proyectos/stockflow-v4.html">StockFlow API REST</a>
+<a class="hover:text-[#88C0D0] transition-colors" href="proyectos/stockflow-v4.html">StockFlow API</a>
 </h4>
 <p class="text-sm text-[#88C0D0] mb-4">Spring Boot &amp; PostgreSQL</p>
 <div class="space-y-4 text-sm">
@@ -376,11 +377,10 @@
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tech Stack</p>
 <div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Java</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Spring Boot</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">PostgreSQL</span>
-<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">JPA</span>
-<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Hibernate</span>
-<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Spring Web</span>
+<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">JPA/Hibernate</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Docker</span>
 </div>
 </div>
@@ -455,6 +455,7 @@
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
 <div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Java</span>
 <span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Spring Boot</span>
 <span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">PostgreSQL</span>
 <span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">JDBC</span>
@@ -471,6 +472,48 @@
 <div class="order-1 md:w-5/12 hidden md:block"></div>
 <div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-900 border-2 border-[#5E81AC] dark:border-[#88C0D0] rounded-full hidden md:block"></div>
 <div class="order-3 md:w-5/12 mb-6 md:mb-0 w-full">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
+<div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
+<i class="fa-solid fa-map-location-dot"></i>
+<span data-i18n="label_reservaciones">Reservas &amp; Mapas</span>
+</div>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+<a class="hover:text-[#5E81AC] dark:hover:text-[#88C0D0] transition-colors" href="proyectos/luciernagas.html" data-i18n="reservaciones_title">Sistema de Reservaciones de Hospedaje</a>
+</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Django &amp; SQLite</p>
+<div class="space-y-4 text-sm">
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
+<p class="text-gray-700 dark:text-gray-300" data-i18n="reservaciones_desc">Catálogo de parques con mapa interactivo, reglas de reservación por temporada y disponibilidad, patrones Facade, Template Method y Observer</p>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Python</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Django</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">SQLite</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">OpenStreetMap</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Leaflet</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 pt-1">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors" href="https://github.com/jromerog01/Sistema-Reservaciones-Luciernagas" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
+              </a>
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="https://lumina-fest.jromerog.dev/" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-arrow-up-right-from-square mr-2"></i><span data-i18n="btn_view_demo">Ver demo</span>
+              </a>
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="proyectos/luciernagas.html">
+<i class="fa-solid fa-circle-info mr-2"></i><span data-i18n="btn_view_details">Ver detalles</span>
+              </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Item 5: Biblioteca -->
+<div class="mb-12 flex flex-col md:flex-row justify-between items-center w-full">
+<div class="order-1 md:w-5/12 mb-6 md:mb-0 w-full">
 <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
 <div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
 <i class="fa-solid fa-book"></i>
@@ -492,17 +535,21 @@
 </div>
 </div>
 <div class="flex flex-wrap gap-3 pt-1">
-<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="https://github.com/jromerog01/Proyecto02_CodeCrafters" target="_blank" rel="noopener noreferrer">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors" href="https://github.com/jromerog01/Proyecto02_CodeCrafters" target="_blank" rel="noopener noreferrer">
 <i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
               </a>
 </div>
 </div>
 </div>
 </div>
+<div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-900 border-2 border-[#5E81AC] dark:border-[#88C0D0] rounded-full hidden md:block"></div>
+<div class="order-3 md:w-5/12 hidden md:block"></div>
 </div>
-<!-- Timeline Item 5 -->
+<!-- Timeline Item 6: Tienda -->
 <div class="mb-12 flex flex-col md:flex-row justify-between items-center w-full">
-<div class="order-1 md:w-5/12 mb-6 md:mb-0 w-full">
+<div class="order-1 md:w-5/12 hidden md:block"></div>
+<div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-900 border-2 border-[#5E81AC] dark:border-[#88C0D0] rounded-full hidden md:block"></div>
+<div class="order-3 md:w-5/12 mb-6 md:mb-0 w-full">
 <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
 <div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
 <i class="fa-solid fa-globe"></i>
@@ -523,15 +570,13 @@
 </div>
 </div>
 <div class="flex flex-wrap gap-3 pt-1">
-<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="https://github.com/jromerog01/Proyecto01_CodeCrafters" target="_blank" rel="noopener noreferrer">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors" href="https://github.com/jromerog01/Proyecto01_CodeCrafters" target="_blank" rel="noopener noreferrer">
 <i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
               </a>
 </div>
 </div>
 </div>
 </div>
-<div class="order-2 relative z-10 w-4 h-4 bg-white dark:bg-gray-900 border-2 border-[#5E81AC] dark:border-[#88C0D0] rounded-full hidden md:block"></div>
-<div class="order-3 md:w-5/12 hidden md:block"></div>
 </div>
 </div>
 <!-- In Progress / Coming Soon -->
@@ -558,28 +603,77 @@
 </div>
 </section>
 <!-- END: Academic Foundation Section -->
-<!-- BEGIN: Projects Section -->
-<section class="w-full py-24 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
-<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+<!-- BEGIN: Contact Section -->
+<section class="w-full py-24 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300" id="contacto">
+<div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
 <div class="text-center mb-16">
 <div class="flex items-center justify-center space-x-4 mb-4">
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
-<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="nav_proyectos">Proyectos</h2>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight" data-i18n="contact_heading">¿Hablamos?</h2>
 <div class="h-px bg-gray-200 dark:bg-gray-700 w-16 md:w-32"></div>
 </div>
-<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide" data-i18n="proj2_subtitle">Soluciones backend construidas de punta a punta</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide max-w-xl mx-auto" data-i18n="contact_subtitle">Estoy abierto a nuevas oportunidades y proyectos. Escríbeme y con gusto platicamos. Si te interesa mi perfil o quieres conocer más sobre mi trabajo, no dudes en contactarme.</p>
 </div>
-<!-- Coming Soon -->
-<div class="max-w-5xl mx-auto bg-white dark:bg-gray-800 border border-dashed border-gray-200 dark:border-gray-700 rounded-2xl p-12 text-center">
-<i class="fa-solid fa-hammer text-3xl text-gray-300 dark:text-gray-600 mb-4"></i>
-<p class="text-gray-500 dark:text-gray-400 font-medium" data-i18n="proj2_comingsoon">Próximamente más proyectos</p>
-<p class="text-sm text-gray-400 dark:text-gray-500 mt-1" data-i18n-html="proj2_meanwhile">Mientras tanto, puedes ver StockFlow API REST en <a class="text-blue-500 dark:text-blue-400 hover:underline" href="#formacion">Formación Académica</a>.</p>
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="grid grid-cols-2 gap-4 order-2 md:order-1">
+<a class="flex flex-col items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow hover:-translate-y-1 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="mailto:jromerog01@outlook.com">
+<i class="fa-regular fa-envelope text-2xl text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Email</span>
+</a>
+<a class="flex flex-col items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow hover:-translate-y-1 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="tel:+525516522741">
+<i class="fa-solid fa-phone text-2xl text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="label_phone">Teléfono</span>
+</a>
+<a class="flex flex-col items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow hover:-translate-y-1 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://github.com/jromerog01" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github text-2xl text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">GitHub</span>
+</a>
+<a class="flex flex-col items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow hover:-translate-y-1 hover:border-gray-300 dark:hover:border-gray-600 transition-all" href="https://www.linkedin.com/in/jesus-antonio-romero-godoy-8a9032383/?skipRedirect=true" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-linkedin text-2xl text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">LinkedIn</span>
+</a>
+</div>
+<div class="text-center md:text-left order-1 md:order-2">
+<div class="flex flex-wrap gap-3 justify-center md:justify-start mb-3">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-3 pr-4 py-1.5 soft-shadow">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="contact_status">Disponible</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-3 pr-4 py-1.5 soft-shadow">
+<i class="fa-regular fa-clock text-xs text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="contact_response">Respondo en menos de 2 horas</span>
+</span>
+</div>
+<div class="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-3 pr-4 py-1.5 soft-shadow">
+<i class="fa-solid fa-location-dot text-xs text-gray-500 dark:text-gray-400"></i>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300" data-i18n="contact_location">Ciudad de México, México</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+<a class="group inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white dark:text-gray-900 bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-white transition-colors shadow-md" href="mailto:jromerog01@outlook.com">
+<i class="fa-regular fa-envelope mr-2 text-sm"></i>
+<span data-i18n="btn_email">Enviar Correo</span>
+</a>
+<a class="group inline-flex items-center justify-center px-6 py-3 border-2 border-gray-900 dark:border-gray-100 text-base font-medium rounded-full text-gray-900 dark:text-gray-100 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="https://www.linkedin.com/in/jesus-antonio-romero-godoy-8a9032383/?skipRedirect=true" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-linkedin mr-2 text-sm"></i>
+<span data-i18n="btn_linkedin">LinkedIn</span>
+</a>
+</div>
+</div>
 </div>
 </div>
 </section>
+<!-- END: Contact Section -->
 <!-- END: Projects Section -->
 </main>
 <!-- END: Main Content -->
+<footer class="w-full py-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 text-center">
+<p class="text-xs text-gray-400 dark:text-gray-500" data-i18n="footer_copyright">© 2026 Jesús Antonio Romero Godoy</p>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-1" data-i18n="footer_built_with">Desarrollado con HTML, CSS y JavaScript</p>
+</div>
+</footer>
 <script defer="" src="js/typewriter.js?v=2"></script>
 <script defer="" src="js/theme.js?v=2"></script>
 <script defer="" src="js/i18n.js?v=2"></script>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistema de Reservaciones de Hospedaje - Jesús Romero</title>
+<link href="../assets/img/logo/miniatura.svg" rel="icon" type="image/svg+xml"/>
+<!-- Set theme before first paint to avoid a light/dark flash -->
+<script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+<!-- Font Awesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 sm:px-4 rounded-full" href="../index.html">
+<i class="fa-solid fa-house text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#acerca">
+<i class="fa-regular fa-user text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="../index.html#proyectos">
+<i class="fa-regular fa-folder text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
+</a>
+<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#">
+<i class="fa-solid fa-wrench text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_servicios">Servicios</span>
+</a>
+<span aria-hidden="true" class="w-px h-6 bg-gray-200 dark:bg-gray-700 shrink-0"></span>
+<button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
+<i class="fa-solid fa-moon text-sm dark:hidden"></i>
+<i class="fa-solid fa-sun text-sm hidden dark:inline"></i>
+</button>
+<button aria-label="Cambiar idioma" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="lang-toggle" type="button">EN</button>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow flex flex-col w-full pt-24">
+<!-- BEGIN: Hero -->
+<section class="w-full px-6 md:px-12 lg:px-24 pt-8 pb-12 max-w-7xl mx-auto">
+<div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+<a class="inline-flex items-center gap-2 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="../index.html#proyectos">
+<i class="fa-solid fa-arrow-left text-[10px]"></i>
+<span data-i18n="sf_back">Volver al portafolio</span>
+</a>
+</div>
+<div class="grid lg:grid-cols-5 gap-10 items-center">
+<div class="lg:col-span-2 min-w-0">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] mb-5">
+<i class="fa-solid fa-map-location-dot text-[10px]"></i><span data-i18n="lf_kicker">Reservas &amp; Mapas</span>
+</span>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4" data-i18n="lf_title">Sistema de Reservaciones de Hospedaje</h1>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="lf_subtitle">Plataforma en Django para explorar los parques del Festival de Luciérnagas, ver sus hospedajes en un mapa interactivo y crear reservaciones con reglas de temporada y disponibilidad.</p>
+<div class="flex flex-wrap gap-3">
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white transition-colors" href="https://github.com/jromerog01/Sistema-Reservaciones-Luciernagas" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
+</a>
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="https://lumina-fest.jromerog.dev/" target="_blank" rel="noopener noreferrer">
+<i class="fa-solid fa-arrow-up-right-from-square mr-2"></i><span data-i18n="btn_view_demo">Ver demo</span>
+</a>
+</div>
+</div>
+<!-- BEGIN: Stat Cards Panel -->
+<div class="lg:col-span-3 w-full min-w-0">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-sun"></i></div>
+<div>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="lf_stat1_value">Jun—Ago</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="lf_stat1_label">Temporada del festival</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-users"></i></div>
+<div>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="lf_stat2_value">3 roles</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="lf_stat2_label">Visitante, Cliente, Admin</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-diagram-project"></i></div>
+<div>
+<p class="text-2xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="lf_stat3_value">4 patrones</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="lf_stat3_label">Facade, Template, Observer, Adapter</p>
+</div>
+</div>
+<div class="bg-[#2E3440] border border-[#4C566A] rounded-2xl p-6 soft-shadow flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
+<div>
+<p class="text-2xl font-bold text-white mb-1" data-i18n="lf_stat4_value">Mapa en vivo</p>
+<p class="text-xs text-[#D8DEE9]" data-i18n="lf_stat4_label">Leaflet + OpenStreetMap</p>
+</div>
+</div>
+</div>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-4 text-center font-mono" data-i18n="lf_terminal_caption"># Cada reservación pasa por el formulario, el facade y el template method antes de guardarse</p>
+</div>
+<!-- END: Stat Cards Panel -->
+</div>
+</section>
+<!-- END: Hero -->
+<!-- BEGIN: Docs Layout -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-20 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-[220px_1fr] gap-12 border-t border-gray-100 dark:border-gray-800 pt-16">
+<!-- BEGIN: Sticky Sidebar -->
+<aside class="hidden lg:block">
+<nav class="sticky top-28 space-y-1 text-sm" id="sidebar-nav">
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#resumen" data-section="resumen" data-i18n="sf_nav_overview">Resumen</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#como-funciona" data-section="como-funciona" data-i18n="sf_flow_heading">Cómo funciona</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#funcionalidades" data-section="funcionalidades" data-i18n="sf_nav_features">Funcionalidades</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#stack" data-section="stack" data-i18n="sf_nav_stack">Stack</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#reglas" data-section="reglas" data-i18n="lf_nav_rules">Reglas</a>
+</nav>
+</aside>
+<!-- END: Sticky Sidebar -->
+<!-- BEGIN: Content -->
+<div class="space-y-20 min-w-0">
+<!-- Overview + Facts -->
+<div class="scroll-mt-28" id="resumen">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_overview_heading">Resumen</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-4">
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="lf_overview_p1">Proyecto final de Ingeniería de Software desarrollado con Django para consultar los parques participantes del Festival de Luciérnagas, explorar sus servicios y hospedajes, visualizar su ubicación en un mapa interactivo y crear reservaciones con reglas de disponibilidad, temporada y permisos de usuario.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="lf_overview_p2">El sistema distingue tres tipos de uso: visitantes que exploran el catálogo público, clientes autenticados que crean y gestionan sus reservaciones, y administradores que gestionan parques, servicios, hospedajes y consultan todas las reservaciones.</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow h-fit grid grid-cols-2 md:grid-cols-1 gap-4 text-sm">
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_role_label">Rol</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="lf_facts_role_value">Desarrollo en equipo (5 integrantes)</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_status_label">Estado</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="lf_facts_status_value">Proyecto académico, demo en línea</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="lf_facts_course_label">Materia</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium">Ingeniería de Software</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_deploy_label">Despliegue</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="lf_facts_deploy_value">Docker en servidor personal</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Cómo funciona (flow diagram) -->
+<div class="scroll-mt-28" id="como-funciona">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-10" data-i18n="sf_flow_heading">Cómo funciona</h2>
+<div class="flex flex-col lg:flex-row items-stretch gap-3 lg:gap-0">
+<div class="flex-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-map-location-dot"></i></div>
+<p class="font-bold text-sm text-gray-900 dark:text-white mb-1" data-i18n="lf_flow_step1">Explorar Parques</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="lf_flow_step1_desc">Catálogo con filtros y mapa interactivo con Leaflet/OpenStreetMap.</p>
+</div>
+<div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
+<div class="flex-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-file-pen"></i></div>
+<p class="font-bold text-sm text-gray-900 dark:text-white mb-1" data-i18n="lf_flow_step2">Formulario de Reserva</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="lf_flow_step2_desc">El cliente elige fechas, unidades y huéspedes para un hospedaje.</p>
+</div>
+<div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
+<div class="flex-1 bg-[#2E3440] border border-[#4C566A] rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-cubes-stacked"></i></div>
+<p class="font-bold text-sm text-white mb-1" data-i18n="lf_flow_step3">Facade + Template Method</p>
+<p class="text-xs text-[#D8DEE9]" data-i18n="lf_flow_step3_desc">Se validan temporada, disponibilidad y reglas de mantenimiento.</p>
+</div>
+<div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
+<div class="flex-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-bell"></i></div>
+<p class="font-bold text-sm text-gray-900 dark:text-white mb-1" data-i18n="lf_flow_step4">Observer notifica</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="lf_flow_step4_desc">La reservación queda activa y se notifica su creación o cancelación.</p>
+</div>
+</div>
+</div>
+<!-- Features: bento grid -->
+<div class="scroll-mt-28" id="funcionalidades">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_features_heading">Funcionalidades clave</h2>
+<div class="grid sm:grid-cols-2 gap-4 sm:auto-rows-[minmax(0,1fr)]">
+<div class="sm:row-span-2 bg-[#2E3440] border border-[#4C566A] rounded-xl p-6 flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
+<div>
+<h3 class="font-bold text-white mb-1" data-i18n="lf_feature1_title">Catálogo de Parques con Mapa</h3>
+<p class="text-sm text-[#D8DEE9]" data-i18n="lf_feature1_desc">Listado público con filtros por estado, hospedaje y servicios, además de un mapa interactivo construido con un patrón Adapter para Leaflet/OpenStreetMap.</p>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-users"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="lf_feature2_title">Roles y Permisos</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="lf_feature2_desc">Usuario personalizado con roles de Cliente y Administrador, e inicio de sesión con Google vía django-allauth.</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-calendar-check"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="lf_feature3_title">Reglas de Reservación</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="lf_feature3_desc">Validación de temporada, disponibilidad, capacidad y días de mantenimiento antes de confirmar cada reserva.</p>
+</div>
+<div class="sm:col-span-2 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 flex items-center gap-4">
+<div class="w-10 h-10 shrink-0 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center"><i class="fa-solid fa-diagram-project"></i></div>
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="lf_feature4_title">Patrones de Diseño</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="lf_feature4_desc">Facade para crear/cancelar reservas, Template Method para el flujo de creación, Observer para notificaciones y Adapter para el mapa.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Stack: pills + Architecture -->
+<div class="scroll-mt-28" id="stack">
+<div class="grid md:grid-cols-2 gap-12">
+<div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-8" data-i18n="sf_stack_heading">Stack Tecnológico</h2>
+<div class="space-y-6">
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="lf_stack_group_backend">Backend</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Python" class="w-5 h-5" src="../assets/img/tech/python.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Python</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Django" class="w-5 h-5" src="../assets/img/tech/django.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Django</span>
+</span>
+</div>
+</div>
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="lf_stack_group_data">Datos</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="SQLite" class="w-5 h-5" src="../assets/img/tech/sqlite.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">SQLite</span>
+</span>
+</div>
+</div>
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="lf_stack_group_maps">Mapas</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">Leaflet</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">OpenStreetMap</span>
+</div>
+</div>
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="lf_stack_group_ui">Auth &amp; UI</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">django-allauth</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">django-crispy-forms</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">Tailwind CSS</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-8" data-i18n="sf_arch_heading">Arquitectura</h2>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="lf_arch1">Apps separadas por dominio: usuarios, parques y reservaciones</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="lf_arch2">Modelo de usuario personalizado con roles CLIENTE y ADMINISTRADOR</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="lf_arch3">ReservacionFacade y ReservacionTemplate encapsulan la lógica de creación y cancelación</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="lf_arch4">MapaAdapter permite intercambiar OpenStreetMap por otro proveedor sin tocar las vistas</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="lf_arch5">Contenerizado con Docker y desplegado en el home lab personal</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Reglas de reservación -->
+<div class="scroll-mt-28" id="reglas">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="lf_rules_heading">Reglas de reservación</h2>
+<div class="grid sm:grid-cols-2 gap-4 text-sm">
+<div class="flex items-start gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+<i class="fa-solid fa-calendar-days text-[#5E81AC] dark:text-[#88C0D0] mt-0.5"></i>
+<span class="text-gray-600 dark:text-gray-300" data-i18n="lf_rule1">La estancia debe caer dentro de la temporada del festival: junio, julio y agosto</span>
+</div>
+<div class="flex items-start gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+<i class="fa-solid fa-ban text-[#5E81AC] dark:text-[#88C0D0] mt-0.5"></i>
+<span class="text-gray-600 dark:text-gray-300" data-i18n="lf_rule2">No se permiten noches en martes, reservados como días de mantenimiento</span>
+</div>
+<div class="flex items-start gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+<i class="fa-solid fa-bed text-[#5E81AC] dark:text-[#88C0D0] mt-0.5"></i>
+<span class="text-gray-600 dark:text-gray-300" data-i18n="lf_rule3">Las unidades reservadas deben cubrir la capacidad según el número de huéspedes</span>
+</div>
+<div class="flex items-start gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+<i class="fa-solid fa-layer-group text-[#5E81AC] dark:text-[#88C0D0] mt-0.5"></i>
+<span class="text-gray-600 dark:text-gray-300" data-i18n="lf_rule4">No se permite sobre-reservar unidades con reservaciones activas en el mismo periodo</span>
+</div>
+<div class="flex items-start gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+<i class="fa-solid fa-tag text-[#5E81AC] dark:text-[#88C0D0] mt-0.5"></i>
+<span class="text-gray-600 dark:text-gray-300" data-i18n="lf_rule5">Las reservaciones en temporada reciben un recargo del 20%</span>
+</div>
+<div class="flex items-start gap-3 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+<i class="fa-solid fa-moon text-[#5E81AC] dark:text-[#88C0D0] mt-0.5"></i>
+<span class="text-gray-600 dark:text-gray-300" data-i18n="lf_rule6">La estancia máxima para un hospedaje es de 30 noches</span>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Content -->
+</div>
+</section>
+<!-- END: Docs Layout -->
+<!-- BEGIN: Quote -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-20 max-w-3xl mx-auto text-center">
+<i class="fa-solid fa-quote-left text-2xl text-gray-200 dark:text-gray-700 mb-4"></i>
+<p class="text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium mb-4" data-i18n="lf_quote_text">Lo desarrollamos en equipo para la materia de Ingeniería de Software, aplicando patrones de diseño reales (Facade, Template Method, Observer, Adapter) a un sistema de reservaciones con reglas de negocio complejas.</p>
+<p class="text-sm text-gray-400 dark:text-gray-500 font-mono" data-i18n="sf_quote_author">— Jesús Romero, desarrollador</p>
+</section>
+<!-- END: Quote -->
+<!-- BEGIN: Back CTA -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-24 max-w-4xl mx-auto text-center border-t border-gray-100 dark:border-gray-800 pt-16">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="sf_cta_heading">¿Quieres ver más proyectos?</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6" data-i18n="sf_cta_desc">Regresa al portafolio para conocer el resto de mi trabajo.</p>
+<a class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:underline" href="../index.html#proyectos">
+<i class="fa-solid fa-arrow-left text-xs"></i>
+<span data-i18n="sf_back">Volver al portafolio</span>
+</a>
+</section>
+<!-- END: Back CTA -->
+</main>
+<!-- END: Main Content -->
+<footer class="w-full py-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 text-center">
+<p class="text-xs text-gray-400 dark:text-gray-500" data-i18n="footer_copyright">© 2026 Jesús Antonio Romero Godoy</p>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-1" data-i18n="footer_built_with">Desarrollado con HTML, CSS y JavaScript</p>
+</div>
+</footer>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../js/i18n.js"></script>
+<script defer="">
+    (function () {
+      var ACTIVE = ['border-[#5E81AC]', 'dark:border-[#88C0D0]', 'bg-gray-50', 'dark:bg-gray-800'];
+      var INACTIVE = ['border-transparent'];
+
+      function init() {
+        var links = document.querySelectorAll('#sidebar-nav .sidebar-link');
+        if (!links.length) return;
+        var sections = [];
+        links.forEach(function (link) {
+          var section = document.getElementById(link.dataset.section);
+          if (section) sections.push(section);
+        });
+        if (!sections.length) return;
+
+        function setActive(id) {
+          links.forEach(function (link) {
+            var isActive = link.dataset.section === id;
+            ACTIVE.forEach(function (c) { link.classList[isActive ? 'add' : 'remove'](c); });
+            INACTIVE.forEach(function (c) { link.classList[isActive ? 'remove' : 'add'](c); });
+          });
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(function (section) { observer.observe(section); });
+        setActive(sections[0].id);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body></html>
