@@ -27,22 +27,22 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 <!-- BEGIN: Navigation -->
-<nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 sm:px-4 rounded-full" href="../index.html">
+<nav aria-label="Navegación principal" class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#inicio">
 <i class="fa-solid fa-house text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
 </a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#acerca">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#acerca">
 <i class="fa-regular fa-user text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
 </a>
-<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="../index.html#proyectos">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#formacion">
+<i class="fa-solid fa-graduation-cap text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_formacion">Formación</span>
+</a>
+<a aria-current="page" class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#proyectos">
 <i class="fa-regular fa-folder text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
-</a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#">
-<i class="fa-solid fa-wrench text-xs"></i>
-<span class="hidden sm:inline" data-i18n="nav_servicios">Servicios</span>
 </a>
 <span aria-hidden="true" class="w-px h-6 bg-gray-200 dark:bg-gray-700 shrink-0"></span>
 <button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
@@ -68,7 +68,7 @@
 <i class="fa-solid fa-map-location-dot text-[10px]"></i><span data-i18n="lf_kicker">Reservas &amp; Mapas</span>
 </span>
 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4" data-i18n="lf_title">Sistema de Reservaciones de Hospedaje</h1>
-<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="lf_subtitle">Plataforma en Django para explorar los parques del Festival de Luciérnagas, ver sus hospedajes en un mapa interactivo y crear reservaciones con reglas de temporada y disponibilidad.</p>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="lf_subtitle">Sistema hecho para gestionar reservaciones de distintos tipos de hospedaje en varias sedes de parques del Festival de las Luciérnagas, ubicados en un mapa interactivo, aplicando reglas de negocio de temporada, disponibilidad y capacidad.</p>
 <div class="flex flex-wrap gap-3">
 <a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white transition-colors" href="https://github.com/jromerog01/Sistema-Reservaciones-Luciernagas" target="_blank" rel="noopener noreferrer">
 <i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
@@ -137,7 +137,7 @@
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_overview_heading">Resumen</h2>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="md:col-span-2 space-y-4">
-<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="lf_overview_p1">Proyecto final de Ingeniería de Software desarrollado con Django para consultar los parques participantes del Festival de Luciérnagas, explorar sus servicios y hospedajes, visualizar su ubicación en un mapa interactivo y crear reservaciones con reglas de disponibilidad, temporada y permisos de usuario.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="lf_overview_p1">Proyecto final de Ingeniería de Software, desarrollado con Django para el Festival de Luciérnagas: varios parques participantes, cada uno con sus servicios y distintos tipos de hospedaje, que el visitante puede explorar en un catálogo y ubicar en un mapa interactivo antes de reservar.</p>
 <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="lf_overview_p2">El sistema distingue tres tipos de uso: visitantes que exploran el catálogo público, clientes autenticados que crean y gestionan sus reservaciones, y administradores que gestionan parques, servicios, hospedajes y consultan todas las reservaciones.</p>
 </div>
 <div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow h-fit grid grid-cols-2 md:grid-cols-1 gap-4 text-sm">
@@ -147,7 +147,7 @@
 </div>
 <div>
 <p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_status_label">Estado</p>
-<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="lf_facts_status_value">Proyecto académico, demo en línea</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="lf_facts_status_value">Proyecto académico, demostración en línea</p>
 </div>
 <div>
 <p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="lf_facts_course_label">Materia</p>

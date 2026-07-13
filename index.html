@@ -55,17 +55,17 @@
 <!-- BEGIN: Main Content -->
 <main class="flex-grow flex flex-col items-center pt-24 md:pt-36 xl:pt-24 pb-12 w-full">
 <!-- BEGIN: Hero Section -->
-<section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full" id="inicio">
+<section class="flex items-center justify-center min-h-[80vh] px-6 md:px-12 lg:px-12 xl:px-24 max-w-7xl mx-auto w-full" id="inicio">
 <div class="flex flex-col lg:flex-row items-center justify-between w-full gap-16 lg:gap-8">
 <!-- BEGIN: Left Column (Text & Buttons) -->
 <div class="flex-1 max-w-xl min-w-0 space-y-8">
 <!-- Header Text -->
 <div class="space-y-4">
 <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
-            <span data-i18n="hero_greeting">Hola, soy</span> <span class="text-gray-400 dark:text-gray-500">Jesús</span>
+            <span data-i18n="hero_greeting">Hola, soy</span> <span class="block text-gray-400 dark:text-gray-500">Jesús</span>
 </h1>
 <!-- Typewriter Effect Container -->
-<div class="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-normal lg:whitespace-nowrap">
+<div class="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-3xl font-mono font-bold text-[#5E81AC] dark:text-[#88C0D0] bg-gray-200 dark:bg-gray-800 inline-block max-w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 whitespace-normal xl:whitespace-nowrap">
 <span id="typewriter-text">Ciencias de la Computación</span><span class="typing-cursor"></span>
 </div>
 </div>
@@ -111,7 +111,7 @@
 </div>
 <!-- END: Left Column -->
 <!-- BEGIN: Right Column (Code Editor Snippet) -->
-<div class="flex-1 w-full max-w-lg lg:max-w-xl">
+<div class="flex-1 w-full min-w-0 max-w-lg lg:max-w-xl">
 <div class="bg-[#2E3440] rounded-xl overflow-hidden soft-shadow border border-[#4C566A]">
 <!-- Editor Window Controls -->
 <div class="bg-[#3B4252] px-4 py-3 grid grid-cols-[1fr_auto_1fr] items-center border-b border-[#4C566A]">
@@ -124,7 +124,7 @@
 <div></div>
 </div>
 <!-- Code Content -->
-<div class="p-6 overflow-x-auto text-sm font-mono leading-relaxed">
+<div class="p-6 overflow-x-auto text-xs lg:text-[11px] xl:text-sm font-mono leading-relaxed">
 <pre><code class="language-java text-[#D8DEE9]">
 <span class="text-[#B48EAD]">@RestController</span>
 <span class="text-[#B48EAD]">@RequestMapping</span>(<span class="text-[#A3BE8C]">"/api/eventos"</span>)
@@ -366,7 +366,7 @@
 <i class="fa-solid fa-star mr-2 text-[10px]"></i><span data-i18n="badge_featured">Proyecto Principal</span>
 </span>
 <h4 class="text-lg font-bold text-white mb-1">
-<a class="hover:text-[#88C0D0] transition-colors" href="proyectos/stockflow-v4.html">StockFlow API</a>
+<a class="hover:text-[#88C0D0] transition-colors" href="proyectos/stockflow.html">StockFlow API</a>
 </h4>
 <p class="text-sm text-[#88C0D0] mb-4">Spring Boot &amp; PostgreSQL</p>
 <div class="space-y-4 text-sm">
@@ -391,7 +391,7 @@
 <a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-[#4C566A] text-[#88C0D0] hover:bg-[#3B4252] transition-colors" href="https://stockflow-api.jromerog.dev/swagger-ui/index.html" target="_blank" rel="noopener noreferrer">
 <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i><span data-i18n="btn_view_demo">Ver demo</span>
               </a>
-<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-[#4C566A] text-[#88C0D0] hover:bg-[#3B4252] transition-colors" href="proyectos/stockflow-v4.html">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-[#4C566A] text-[#88C0D0] hover:bg-[#3B4252] transition-colors" href="proyectos/stockflow.html">
 <i class="fa-solid fa-circle-info mr-2"></i><span data-i18n="btn_view_details">Ver detalles</span>
               </a>
 </div>
@@ -410,12 +410,14 @@
 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC] text-white mb-3">
 <i class="fa-solid fa-server mr-2 text-[10px]"></i>Home Lab
 </span>
-<h4 class="text-lg font-bold text-white mb-1" data-i18n="homelab_title">Servidor Personal</h4>
+<h4 class="text-lg font-bold text-white mb-1">
+<a class="hover:text-[#88C0D0] transition-colors" href="proyectos/homelab.html" data-i18n="homelab_title">Servidor Personal</a>
+</h4>
 <p class="text-sm text-[#88C0D0] mb-4">Ubuntu Server &amp; Docker</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-[#D8DEE9]" data-i18n="homelab_desc">Autoalojo este portafolio y mis proyectos personales (incluyendo StockFlow) mediante Docker, para poder probarlos en vivo. También funciona como el cerebro de mi hogar inteligente con Home Assistant.</p>
+<p class="text-[#D8DEE9]" data-i18n="homelab_desc">Servidor propio corriendo 24/7 donde autoalojo mis proyectos con Docker: despliegue mediante contenedores, acceso remoto seguro y administración de servicios en un entorno de producción real.</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -425,7 +427,6 @@
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Docker Compose</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">SSH</span>
 <span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Tailscale</span>
-<span class="px-3 py-1 bg-[#3B4252] border border-[#4C566A] rounded-md text-xs text-[#88C0D0] font-mono">Home Assistant</span>
 </div>
 </div>
 <div class="flex flex-wrap gap-3 pt-1">
@@ -442,24 +443,36 @@
 <div class="order-1 md:w-5/12 mb-6 md:mb-0 w-full">
 <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 p-6 rounded-2xl soft-shadow text-left">
 <div class="flex items-center space-x-2 text-[#5E81AC] dark:text-[#88C0D0] mb-3 text-sm font-bold uppercase tracking-wider">
-<i class="fa-solid fa-server"></i>
-<span data-i18n="label_backend">Backend</span>
+<i class="fa-solid fa-database"></i>
+<span data-i18n="label_db">Bases de Datos</span>
 </div>
-<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1" data-i18n="eventos_title">Sistema Backend de Gestión de Eventos Multirrol</h4>
-<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Spring Boot &amp; PostgreSQL</p>
+<h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+<a class="hover:text-[#5E81AC] dark:hover:text-[#88C0D0] transition-colors" href="proyectos/proyecto-bdd.html" data-i18n="eventos_title">Gestión de Eventos Multirrol</a>
+</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">PostgreSQL, Spring Boot &amp; JDBC</p>
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-gray-700 dark:text-gray-300" data-i18n="eventos_desc">Conexión a PostgreSQL vía JDBC, operaciones CRUD completas sobre las tablas de la base de datos</p>
+<p class="text-gray-700 dark:text-gray-300" data-i18n="eventos_desc">Modelado relacional y consultas SQL sobre PostgreSQL para un sistema de eventos con múltiples roles de personal. Sobre esto, construí una API REST en Spring Boot con JDBC y un panel web para operar el CRUD.</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
 <div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">PostgreSQL</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">SQL</span>
 <span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Java</span>
 <span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">Spring Boot</span>
-<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">PostgreSQL</span>
 <span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">JDBC</span>
+<span class="px-3 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 rounded-md text-xs text-gray-600 dark:text-gray-300 font-mono">JavaScript</span>
 </div>
+</div>
+<div class="flex flex-wrap gap-3 pt-1">
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white transition-colors" href="https://github.com/jromerog01/Proyecto-Final-Bases-de-Datos" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
+</a>
+<a class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-medium border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" href="proyectos/proyecto-bdd.html">
+<i class="fa-solid fa-circle-info mr-2"></i><span data-i18n="btn_view_details">Ver detalles</span>
+</a>
 </div>
 </div>
 </div>
@@ -484,7 +497,7 @@
 <div class="space-y-4 text-sm">
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Concepts</p>
-<p class="text-gray-700 dark:text-gray-300" data-i18n="reservaciones_desc">Catálogo de parques con mapa interactivo, reglas de reservación por temporada y disponibilidad, patrones Facade, Template Method y Observer</p>
+<p class="text-gray-700 dark:text-gray-300" data-i18n="reservaciones_desc">Sistema hecho para gestionar reservaciones de distintos tipos de hospedaje en varias sedes de parques, ubicados en un mapa interactivo, aplicando reglas de negocio de temporada, disponibilidad y capacidad.</p>
 </div>
 <div>
 <p class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Tech Stack</p>
@@ -678,7 +691,7 @@
 <script defer="" src="js/theme.js?v=2"></script>
 <script defer="" src="js/i18n.js?v=2"></script>
 <script defer="" src="js/navigation.js?v=1"></script>
-<script defer="">
+<script defer=""> https://github.com/jromerog01/Proyecto-Final-Bases-de-Datos
     (function () {
       var toggle = document.getElementById('tech-toggle');
       var extra = document.getElementById('tech-extra');

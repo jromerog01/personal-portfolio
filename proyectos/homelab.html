@@ -27,22 +27,22 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 <!-- BEGIN: Navigation -->
-<nav class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-3 py-2 sm:px-4 rounded-full" href="../index.html">
+<nav aria-label="Navegación principal" class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#inicio">
 <i class="fa-solid fa-house text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
 </a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#acerca">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#acerca">
 <i class="fa-regular fa-user text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
 </a>
-<a class="flex items-center space-x-2 text-sm font-semibold bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 sm:px-4 rounded-full transition-colors" href="../index.html#proyectos">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#formacion">
+<i class="fa-solid fa-graduation-cap text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_formacion">Formación</span>
+</a>
+<a aria-current="page" class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#proyectos">
 <i class="fa-regular fa-folder text-xs"></i>
 <span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
-</a>
-<a class="flex items-center space-x-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors px-2 py-2 sm:px-0" href="../index.html#">
-<i class="fa-solid fa-wrench text-xs"></i>
-<span class="hidden sm:inline" data-i18n="nav_servicios">Servicios</span>
 </a>
 <span aria-hidden="true" class="w-px h-6 bg-gray-200 dark:bg-gray-700 shrink-0"></span>
 <button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
@@ -68,7 +68,7 @@
 <i class="fa-solid fa-server text-[10px]"></i><span data-i18n="hl_kicker">Infraestructura</span>
 </span>
 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4" data-i18n="hl_title">Servidor Personal (Home Lab)</h1>
-<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="hl_subtitle">Autoalojo este portafolio y mis proyectos personales (incluyendo StockFlow) mediante Docker, para poder probarlos en vivo. También funciona como el cerebro de mi hogar inteligente con Home Assistant.</p>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="hl_subtitle">Servidor propio corriendo 24/7 donde autoalojo mis proyectos con Docker: despliegue mediante contenedores, acceso remoto seguro y administración de servicios en un entorno de producción real.</p>
 <div class="flex flex-wrap gap-3">
 <a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white transition-colors" href="https://github.com/jromerog01" target="_blank" rel="noopener noreferrer">
 <i class="fa-brands fa-github mr-2"></i><span data-i18n="hl_btn_github">Ver perfil de GitHub</span>
@@ -126,8 +126,8 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_overview_heading">Resumen</h2>
 <div class="grid md:grid-cols-3 gap-8">
 <div class="md:col-span-2 space-y-4">
-<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="hl_overview_p1">Este servidor personal es la base de todo mi trabajo en producción: un Ubuntu Server que corre 24/7 en casa y aloja, mediante Docker, los proyectos que muestro en este portafolio, incluyendo StockFlow y el propio sitio que estás visitando.</p>
-<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="hl_overview_p2">Además de servir aplicaciones, funciona como el cerebro de mi hogar inteligente con Home Assistant, y es accesible de forma remota y segura desde cualquier lugar gracias a Tailscale, sin exponer puertos innecesarios a internet.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="hl_overview_p1">Es un equipo con Ubuntu Server encendido las 24 horas en casa. Lo monté para practicar infraestructura real más allá del código: cada proyecto vive aislado en su propio contenedor Docker, orquestado con Docker Compose.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="hl_overview_p2">Administrarlo me da control sobre dónde y cómo corren mis proyectos, y me ha servido para practicar administración de servicios en Linux, redes y acceso remoto seguro mediante Tailscale y SSH, sin exponer puertos innecesarios a internet.</p>
 </div>
 <div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow h-fit grid grid-cols-2 md:grid-cols-1 gap-4 text-sm">
 <div>
@@ -170,7 +170,7 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 <div class="flex-1 bg-[#2E3440] border border-[#4C566A] rounded-xl p-5 soft-shadow text-center">
 <div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-cubes-stacked"></i></div>
 <p class="font-bold text-sm text-white mb-1" data-i18n="hl_flow_step3">Servicios desplegados</p>
-<p class="text-xs text-[#D8DEE9]" data-i18n="hl_flow_step3_desc">Portafolio, StockFlow y Home Assistant corriendo en paralelo.</p>
+<p class="text-xs text-[#D8DEE9]" data-i18n="hl_flow_step3_desc">Sitios, APIs y bases de datos corriendo en paralelo, aislados entre sí.</p>
 </div>
 <div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
 <div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
@@ -193,9 +193,9 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 </div>
 </div>
 <div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
-<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-house-signal"></i></div>
-<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="hl_feature2_title">Automatización del Hogar</h3>
-<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="hl_feature2_desc">Home Assistant centraliza y automatiza los dispositivos inteligentes de la casa.</p>
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-globe"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="hl_feature2_title">Publicación con Nginx y Cloudflare Tunnel</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="hl_feature2_desc">Nginx sirve los sitios y un túnel de Cloudflare los expone en subdominios propios con HTTPS.</p>
 </div>
 <div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
 <div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-cubes-stacked"></i></div>
@@ -243,6 +243,8 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 <div>
 <p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="hl_stack_group_network">Redes &amp; Acceso remoto</p>
 <div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">Nginx</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">Cloudflare Tunnel</span>
 <span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">Tailscale</span>
 <span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">SSH</span>
 </div>
@@ -264,7 +266,7 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 </li>
 <li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
 <i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
-<span data-i18n="hl_arch2">Cada servicio (portafolio, StockFlow, Home Assistant) aislado en su propio contenedor Docker</span>
+<span data-i18n="hl_arch2">Cada servicio aislado en su propio contenedor Docker, con su red y volúmenes</span>
 </li>
 <li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
 <i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
@@ -291,7 +293,7 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 <h3 class="text-lg font-bold text-white mb-2" data-i18n="hl_access_heading">Todo corre aquí mismo</h3>
 <p class="text-sm text-[#D8DEE9] max-w-lg" data-i18n="hl_access_desc">Este portafolio, StockFlow y el resto de mis proyectos en producción se sirven desde este mismo servidor personal.</p>
 </div>
-<a class="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-white text-gray-900 hover:bg-gray-100 transition-colors" href="stockflow-v4.html">
+<a class="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-white text-gray-900 hover:bg-gray-100 transition-colors" href="stockflow.html">
 <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i><span data-i18n="hl_access_btn">Ver StockFlow</span>
 </a>
 </div>
@@ -301,7 +303,7 @@ cloudflare/cloudflared   3 weeks ago    <span class="text-[#A3BE8C]">Up 21 days<
 <!-- BEGIN: Quote -->
 <section class="w-full px-6 md:px-12 lg:px-24 pb-20 max-w-3xl mx-auto text-center">
 <i class="fa-solid fa-quote-left text-2xl text-gray-200 dark:text-gray-700 mb-4"></i>
-<p class="text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium mb-4" data-i18n="hl_quote_text">Monté este servidor para tener control total sobre dónde y cómo corren mis proyectos: aprender infraestructura real, no solo código, contenedorizando y desplegando todo con mis propias manos.</p>
+<p class="text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium mb-4" data-i18n="hl_quote_text">Monté este servidor para tener control total sobre dónde y cómo corren mis proyectos: aprender infraestructura real, no solo código, contenerizando y desplegando todo con mis propias manos.</p>
 <p class="text-sm text-gray-400 dark:text-gray-500 font-mono" data-i18n="sf_quote_author">— Jesús Romero, desarrollador</p>
 </section>
 <!-- END: Quote -->

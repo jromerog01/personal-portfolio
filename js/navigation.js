@@ -20,13 +20,24 @@ if (floatingNav) {
     });
   };
 
-  const updateActiveSection = () => {
-    const navBottom = floatingNav.getBoundingClientRect().bottom;
-    const marker = window.scrollY + navBottom + 24;
-    let active = sections[0];
+  // A clicked anchor lands at its scroll-margin-top, so the marker must sit at
+  // that same line (plus a pixel of slack) or the previous section still wins.
+  const markerOffset = (section) =>
+    parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
 
+  const updateActiveSection = () => {
+    // At the bottom of the page the last section may never reach the marker.
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+    if (atBottom) {
+      setActiveLink(sections[sections.length - 1].link);
+      return;
+    }
+
+    let active = sections[0];
     sections.forEach((item) => {
-      if (item.section.getBoundingClientRect().top + window.scrollY <= marker) {
+      const top = item.section.getBoundingClientRect().top + window.scrollY;
+      if (top <= window.scrollY + markerOffset(item.section) + 1) {
         active = item;
       }
     });
@@ -44,11 +55,22 @@ if (floatingNav) {
     });
   };
 
+  // Hold the clicked link active until the smooth scroll settles, so the
+  // intermediate sections it flies past don't steal the highlight.
+  let lockUntil = 0;
   navLinks.forEach((link) => {
-    link.addEventListener('click', () => setActiveLink(link));
+    link.addEventListener('click', () => {
+      setActiveLink(link);
+      lockUntil = Date.now() + 800;
+    });
   });
 
-  window.addEventListener('scroll', requestUpdate, { passive: true });
+  const onScroll = () => {
+    if (Date.now() < lockUntil) return;
+    requestUpdate();
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', requestUpdate);
   window.addEventListener('load', requestUpdate);
   updateActiveSection();

@@ -38,19 +38,69 @@ const translations = {
     btn_view_demo: "Ver demo",
     homelab_title: "Servidor Personal",
     homelab_desc:
-      "Autoalojo este portafolio y mis proyectos personales (incluyendo StockFlow) mediante Docker, para poder probarlos en vivo. También funciona como el cerebro de mi hogar inteligente con Home Assistant.",
+      "Servidor propio corriendo 24/7 donde autoalojo mis proyectos con Docker: despliegue mediante contenedores, acceso remoto seguro y administración de servicios en un entorno de producción real.",
     label_backend: "Backend",
-    eventos_title: "Sistema Backend de Gestión de Eventos Multirrol",
+    label_db: "Bases de Datos",
+    eventos_title: "Gestión de Eventos Multirrol",
     eventos_desc:
-      "Conexión a PostgreSQL vía JDBC, operaciones CRUD completas sobre las tablas de la base de datos",
+      "Modelado relacional y consultas SQL sobre PostgreSQL para un sistema de eventos con múltiples roles de personal. Sobre esto, construí una API REST en Spring Boot con JDBC y un panel web para operar el CRUD.",
     label_reservaciones: "Reservas & Mapas",
     reservaciones_title: "Sistema de Reservaciones de Hospedaje",
     reservaciones_desc:
-      "Catálogo de parques con mapa interactivo, reglas de reservación por temporada y disponibilidad, patrones Facade, Template Method y Observer",
+      "Sistema hecho para gestionar reservaciones de distintos tipos de hospedaje en varias sedes de parques, ubicados en un mapa interactivo, aplicando reglas de negocio de temporada, disponibilidad y capacidad.",
+    ev_subtitle:
+      "Base de datos relacional para un torneo con múltiples roles de personal, participantes y ventas: modelado desde cero en PostgreSQL, con restricciones, programación en la base y consultas de reporte. Sobre esto, una API REST en Spring Boot con JDBC y un panel web para operarla.",
+    ev_sql_caption: "Una de las 15 consultas de reporte pedidas por el caso de uso",
+    ev_nav_model: "Modelo de datos",
+    ev_overview_p1:
+      "Proyecto de la materia Fundamentos de Bases de Datos, se modeló desde cero la base de datos para un torneo con varias sedes, distintos tipos de competencia, personal con roles diferenciados (cuidadores, limpiadores, registradores y vendedores), participantes, visitantes y ventas.",
+    ev_overview_p2:
+      "El entregable no fue solo el esquema: incluye el modelo entidad-relación y su traducción al modelo relacional, el DDL con sus restricciones de integridad, la programación dentro de la base (disparadores y procedimientos almacenados) y consultas no triviales que responden al caso de uso.",
+    ev_overview_p3:
+      "Sobre ese esquema construí una aplicación en Spring Boot que expone la base por HTTP mediante JDBC, con un panel web para dar de alta, consultar, editar y eliminar registros.",
+    ev_facts_role_value: "Trabajo en equipo",
+    ev_facts_course_value: "Fundamentos de Bases de Datos",
+    ev_facts_status_value: "Proyecto académico",
+    ev_facts_scale_label: "Escala",
+    ev_facts_scale_value: "34 tablas · 45 llaves foráneas",
+    ev_flow_step1: "Modelo E-R",
+    ev_flow_step1_desc: "Entidades, relaciones y cardinalidades a partir del caso de uso.",
+    ev_flow_step2: "Esquema relacional",
+    ev_flow_step2_desc: "DDL con llaves, restricciones CHECK e integridad referencial.",
+    ev_flow_step3: "Lógica en la base",
+    ev_flow_step3_desc: "Disparadores y procedimientos que hacen cumplir las reglas del torneo.",
+    ev_flow_step4: "API y panel",
+    ev_flow_step4_desc: "Spring Boot expone la base por HTTP y un panel web opera el CRUD.",
+    ev_feature1_title: "Modelado relacional",
+    ev_feature1_desc:
+      "34 tablas y 45 llaves foráneas que modelan personal con roles distintos, participantes, visitantes, tres tipos de torneo y las ventas de cada evento.",
+    ev_feature2_title: "Disparadores y procedimientos",
+    ev_feature2_desc:
+      "Reglas del torneo aplicadas dentro de la base: impedir inscripciones incompatibles y recalcular las ganancias de un evento en cada venta.",
+    ev_feature3_title: "Consultas de reporte",
+    ev_feature3_desc:
+      "15 consultas con JOINs, agregaciones y funciones de ventana: ingresos por día, semana y mes, ventas por vendedor y estadísticas de los torneos.",
+    ev_feature4_title: "API REST y panel de administración",
+    ev_feature4_desc:
+      "Spring Boot con JDBC: SQL escrito a mano, parámetros nombrados y mapeo manual de resultados, más un panel en HTML, CSS y JavaScript para operar el CRUD.",
+    ev_model_heading: "Modelo de datos",
+    ev_model_desc:
+      "El diseño partió de un modelo entidad-relación y se tradujo después al modelo relacional que dio origen al DDL. Haz clic en cualquiera de los dos para verlo en grande.",
+    ev_model_er: "Modelo entidad-relación",
+    ev_model_rel: "Modelo relacional",
+    ev_stack_group_db: "Base de datos",
+    ev_stack_group_front: "Interfaz",
+    ev_arch1: "Esquema normalizado con integridad referencial y restricciones CHECK sobre cada tabla",
+    ev_arch2: "Reglas de negocio dentro de la base con disparadores y procedimientos en PL/pgSQL",
+    ev_arch3: "Aplicación Spring Boot por capas: controlador, servicio, repositorio y mapeo de filas",
+    ev_arch4: "Acceso a datos con JDBC y parámetros nombrados",
+    ev_quote_text:
+      "Es el proyecto donde aprendí a pensar primero en los datos: modelar el dominio, imponerle restricciones y escribir el SQL a mano. Ya que una base bien diseñada sostiene todo lo que se construye encima, una mal diseñada se paga después.",
+
     lf_kicker: "Reservas & Mapas",
     lf_title: "Sistema de Reservaciones de Hospedaje",
     lf_subtitle:
-      "Plataforma en Django para explorar los parques del Festival de Luciérnagas, ver sus hospedajes en un mapa interactivo y crear reservaciones con reglas de temporada y disponibilidad.",
+      "Sistema hecho para gestionar reservaciones de distintos tipos de hospedaje en varias sedes de parques del Festival de las Luciérnagas, ubicados en un mapa interactivo, aplicando reglas de negocio de temporada, disponibilidad y capacidad.",
     lf_terminal_caption:
       "# Cada reservación pasa por el formulario, el facade y el template method antes de guardarse",
     lf_stat1_value: "Jun—Ago",
@@ -63,11 +113,11 @@ const translations = {
     lf_stat4_label: "Leaflet + OpenStreetMap",
     lf_nav_rules: "Reglas",
     lf_overview_p1:
-      "Proyecto final de Ingeniería de Software desarrollado con Django para consultar los parques participantes del Festival de Luciérnagas, explorar sus servicios y hospedajes, visualizar su ubicación en un mapa interactivo y crear reservaciones con reglas de disponibilidad, temporada y permisos de usuario.",
+      "Proyecto final de Ingeniería de Software, desarrollado con Django para el Festival de Luciérnagas: varios parques participantes, cada uno con sus servicios y distintos tipos de hospedaje, que el visitante puede explorar en un catálogo y ubicar en un mapa interactivo antes de reservar.",
     lf_overview_p2:
       "El sistema distingue tres tipos de uso: visitantes que exploran el catálogo público, clientes autenticados que crean y gestionan sus reservaciones, y administradores que gestionan parques, servicios, hospedajes y consultan todas las reservaciones.",
     lf_facts_role_value: "Desarrollo en equipo (5 integrantes)",
-    lf_facts_status_value: "Proyecto académico, demo en línea",
+    lf_facts_status_value: "Proyecto académico, demostración en línea",
     lf_facts_course_label: "Materia",
     lf_facts_deploy_value: "Docker en servidor personal",
     lf_flow_step1: "Explorar Parques",
@@ -141,14 +191,14 @@ const translations = {
     sf_kicker: "Proyecto Principal",
     sf_live_badge: "API en vivo",
     sf_subtitle:
-      "Sistema de gestión de inventarios construido con Spring Boot y PostgreSQL, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos.",
+      "API REST para la gestión de inventarios construido con Spring Boot y PostgreSQL, funcionando además como punto de venta (POS) con registro de ventas e historial de movimientos.",
     sf_stat_type: "REST API",
     sf_stat_stack: "Spring Boot & PostgreSQL",
     sf_stat_persist: "JPA + Hibernate",
-    sf_stat_deploy: "Contenedorizado con Docker",
+    sf_stat_deploy: "Contenerizado con Docker",
     sf_overview_heading: "Resumen",
     sf_overview_p1:
-      "StockFlow API REST es un sistema de gestión de inventarios pensado para pequeños y medianos negocios: administra proveedores, catálogo de productos y niveles de stock desde un único backend.",
+      "StockFlow es una API REST que proporciona un sistema de gestión de inventarios pensado para pequeños y medianos negocios, ya que administra proveedores, catálogo de productos y niveles de stock desde un único backend.",
     sf_overview_p2:
       "Además de la gestión de inventario, StockFlow funciona como punto de venta (POS): registra ventas, actualiza el stock automáticamente y mantiene un historial completo de movimientos para trazabilidad total.",
     sf_facts_heading: "Datos rápidos",
@@ -166,7 +216,7 @@ const translations = {
     sf_feature2_title: "Catálogo de Productos y Stock",
     sf_feature2_desc: "Control de existencias en tiempo real, con actualización automática ante cada movimiento.",
     sf_feature3_title: "Punto de Venta (POS)",
-    sf_feature3_desc: "Registro de ventas que descuenta stock automáticamente y calcula totales al momento.",
+    sf_feature3_desc: "Registro de ventas que descuenta stock automáticamente y calcula totales con y sin impuestos al momento.",
     sf_feature4_title: "Historial de Movimientos",
     sf_feature4_desc: "Trazabilidad completa de entradas y salidas de inventario para auditoría y reportes.",
     sf_stack_heading: "Stack Tecnológico",
@@ -174,7 +224,8 @@ const translations = {
     sf_arch1: "API REST construida con Spring Boot y Spring Web",
     sf_arch2: "Persistencia con JPA / Hibernate sobre PostgreSQL",
     sf_arch3: "Documentación interactiva con Swagger / OpenAPI",
-    sf_arch4: "Contenedorizada con Docker y desplegada en el home lab personal",
+    sf_arch4:
+      'Contenerizada con Docker y desplegada en el <a class="text-[#5E81AC] dark:text-[#88C0D0] underline underline-offset-2 hover:text-gray-900 dark:hover:text-white transition-colors" href="homelab.html">home lab personal</a>',
     sf_docs_heading: "Documentación de la API",
     sf_docs_desc:
       "Explora todos los endpoints, modelos de datos y prueba las peticiones directamente desde Swagger UI.",
@@ -211,7 +262,7 @@ const translations = {
     sf_flow_step4: "Historial",
     sf_flow_step4_desc: "El movimiento queda registrado para trazabilidad y auditoría.",
     sf_quote_text:
-      "Construí StockFlow para poner en práctica arquitectura backend real: persistencia con JPA/Hibernate, documentación con Swagger y despliegue con Docker en mi propio servidor.",
+      "Construí StockFlow para poner en práctica arquitectura backend real: persistencia con JPA/Hibernate y PostgreSQL, reglas de negocio, documentación con Swagger y despliegue con Docker.",
     sf_quote_author: "Jesús Romero, desarrollador",
     sf_stack_strip_label: "Construido con",
     sf_stack_group_lang: "Backend",
@@ -222,15 +273,15 @@ const translations = {
     hl_kicker: "Infraestructura",
     hl_title: "Servidor Personal (Home Lab)",
     hl_subtitle:
-      "Autoalojo este portafolio y mis proyectos personales (incluyendo StockFlow) mediante Docker, para poder probarlos en vivo. También funciona como el cerebro de mi hogar inteligente con Home Assistant.",
+      "Servidor propio corriendo 24/7 donde autoalojo mis proyectos con Docker: despliegue mediante contenedores, acceso remoto seguro y administración de servicios en un entorno de producción real.",
     hl_btn_github: "Ver perfil de GitHub",
     hl_btn_live: "Ver un proyecto en vivo",
     hl_terminal_caption: "# Todo corre en contenedores, accesible de forma remota vía Tailscale",
     hl_nav_access: "Acceso remoto",
     hl_overview_p1:
-      "Este servidor personal es la base de todo mi trabajo en producción: un Ubuntu Server que corre 24/7 en casa y aloja, mediante Docker, los proyectos que muestro en este portafolio, incluyendo StockFlow y el propio sitio que estás visitando.",
+      "Es un equipo con Ubuntu Server encendido las 24 horas en casa. Lo monté para practicar infraestructura real más allá del código: cada proyecto vive aislado en su propio contenedor Docker, orquestado con Docker Compose.",
     hl_overview_p2:
-      "Además de servir aplicaciones, funciona como el cerebro de mi hogar inteligente con Home Assistant, y es accesible de forma remota y segura desde cualquier lugar gracias a Tailscale, sin exponer puertos innecesarios a internet.",
+      "Administrarlo me da control sobre dónde y cómo corren mis proyectos, y me ha servido para practicar administración de servicios en Linux, redes y acceso remoto seguro mediante Tailscale y SSH, sin exponer puertos innecesarios a internet.",
     hl_facts_status_value: "Activo, en producción 24/7",
     hl_facts_os_label: "Sistema operativo",
     hl_facts_deploy_value: "Docker & Docker Compose",
@@ -239,13 +290,13 @@ const translations = {
     hl_flow_step2: "Docker Compose",
     hl_flow_step2_desc: "Orquesta y aísla cada servicio en su propio contenedor.",
     hl_flow_step3: "Servicios desplegados",
-    hl_flow_step3_desc: "Portafolio, StockFlow y Home Assistant corriendo en paralelo.",
+    hl_flow_step3_desc: "Sitios, APIs y bases de datos corriendo en paralelo, aislados entre sí.",
     hl_flow_step4: "Acceso remoto",
     hl_flow_step4_desc: "Tailscale expone lo necesario de forma segura, sin abrir puertos.",
     hl_feature1_title: "Hosting de Proyectos",
     hl_feature1_desc: "Aloja este portafolio y StockFlow en contenedores Docker independientes, listos para probarse en vivo.",
-    hl_feature2_title: "Automatización del Hogar",
-    hl_feature2_desc: "Home Assistant centraliza y automatiza los dispositivos inteligentes de la casa.",
+    hl_feature2_title: "Publicación con Nginx y Cloudflare Tunnel",
+    hl_feature2_desc: "Nginx sirve los sitios y un túnel de Cloudflare los expone en subdominios propios con HTTPS.",
     hl_feature3_title: "Orquestación con Docker Compose",
     hl_feature3_desc: "Cada servicio vive en su propio contenedor, con despliegues reproducibles y aislados.",
     hl_feature4_title: "Acceso Remoto Seguro",
@@ -255,14 +306,14 @@ const translations = {
     hl_stack_group_network: "Redes & Acceso remoto",
     hl_stack_group_automation: "Automatización",
     hl_arch1: "Ubuntu Server como sistema base, corriendo de forma ininterrumpida en casa",
-    hl_arch2: "Cada servicio (portafolio, StockFlow, Home Assistant) aislado en su propio contenedor Docker",
+    hl_arch2: "Cada servicio aislado en su propio contenedor Docker, con su red y volúmenes",
     hl_arch3: "Orquestación y despliegues reproducibles con Docker Compose",
     hl_arch4: "Acceso remoto seguro vía Tailscale y SSH, sin exponer puertos innecesarios",
     hl_access_heading: "Todo corre aquí mismo",
     hl_access_desc: "Este portafolio, StockFlow y el resto de mis proyectos en producción se sirven desde este mismo servidor personal.",
     hl_access_btn: "Ver StockFlow",
     hl_quote_text:
-      "Monté este servidor para tener control total sobre dónde y cómo corren mis proyectos: aprender infraestructura real, no solo código, contenedorizando y desplegando todo con mis propias manos.",
+      "Monté este servidor para tener control total sobre dónde y cómo corren mis proyectos: aprender infraestructura real, no solo código, contenerizando y desplegando todo con mis propias manos.",
   },
   en: {
     nav_inicio: "Home",
@@ -303,19 +354,69 @@ const translations = {
     btn_view_demo: "View Demo",
     homelab_title: "Personal Server",
     homelab_desc:
-      "I self-host this portfolio and my personal projects (including StockFlow) with Docker, so I can test them live. It also acts as the brain of my smart home with Home Assistant.",
+      "My own server running 24/7 where I self-host my projects with Docker: container deployment, secure remote access, and service administration in a real production environment.",
     label_backend: "Backend",
-    eventos_title: "Multi-role Event Management Backend System",
+    label_db: "Databases",
+    eventos_title: "Multi-role Event Management",
     eventos_desc:
-      "PostgreSQL connection via JDBC, full CRUD operations across the database tables",
+      "Relational modeling and SQL queries on PostgreSQL for an event system with multiple staff roles. On top of that, I built a REST API in Spring Boot with JDBC and a web panel to run the CRUD.",
     label_reservaciones: "Bookings & Maps",
     reservaciones_title: "Lodging Reservation System",
     reservaciones_desc:
-      "Park catalog with interactive map, season and availability reservation rules, Facade, Template Method, and Observer patterns",
+      "A system built to manage reservations for different lodging types across several park venues, placed on an interactive map, applying business rules for season, availability, and capacity.",
+    ev_subtitle:
+      "Relational database for a tournament with multiple staff roles, participants, and sales: modeled from scratch in PostgreSQL, with constraints, in-database programming, and reporting queries. On top of it, a REST API in Spring Boot with JDBC and a web panel to operate it.",
+    ev_sql_caption: "One of the 15 reporting queries required by the use case",
+    ev_nav_model: "Data model",
+    ev_overview_p1:
+      "A project for the Database Fundamentals course: the database was modeled from scratch for a tournament with several venues, different competition types, staff with distinct roles (caretakers, cleaners, registrars, and vendors), participants, visitors, and sales.",
+    ev_overview_p2:
+      "The deliverable was not just the schema: it includes the entity-relationship model and its translation into the relational model, the DDL with its integrity constraints, in-database programming (triggers and stored procedures), and non-trivial queries answering the use case.",
+    ev_overview_p3:
+      "On top of that schema I built a Spring Boot application that exposes the database over HTTP through JDBC, with a web panel to create, read, update, and delete records.",
+    ev_facts_role_value: "Team work",
+    ev_facts_course_value: "Database Fundamentals",
+    ev_facts_status_value: "Academic project",
+    ev_facts_scale_label: "Scale",
+    ev_facts_scale_value: "34 tables · 45 foreign keys",
+    ev_flow_step1: "E-R model",
+    ev_flow_step1_desc: "Entities, relationships, and cardinalities drawn from the use case.",
+    ev_flow_step2: "Relational schema",
+    ev_flow_step2_desc: "DDL with keys, CHECK constraints, and referential integrity.",
+    ev_flow_step3: "Logic in the database",
+    ev_flow_step3_desc: "Triggers and procedures that enforce the tournament rules.",
+    ev_flow_step4: "API and panel",
+    ev_flow_step4_desc: "Spring Boot exposes the database over HTTP and a web panel runs the CRUD.",
+    ev_feature1_title: "Relational modeling",
+    ev_feature1_desc:
+      "34 tables and 45 foreign keys modeling staff with different roles, participants, visitors, three tournament types, and the sales of each event.",
+    ev_feature2_title: "Triggers and stored procedures",
+    ev_feature2_desc:
+      "Tournament rules enforced inside the database: preventing incompatible sign-ups and recalculating an event's revenue on every sale.",
+    ev_feature3_title: "Reporting queries",
+    ev_feature3_desc:
+      "15 queries with JOINs, aggregations, and window functions: daily, weekly, and monthly revenue, sales per vendor, and tournament statistics.",
+    ev_feature4_title: "REST API and admin panel",
+    ev_feature4_desc:
+      "Spring Boot with JDBC: hand-written SQL, named parameters, and manual row mapping, plus a panel in HTML, CSS, and JavaScript to operate the CRUD.",
+    ev_model_heading: "Data model",
+    ev_model_desc:
+      "The design started from an entity-relationship model and was then translated into the relational model that gave rise to the DDL. Click either one to view it full size.",
+    ev_model_er: "Entity-relationship model",
+    ev_model_rel: "Relational model",
+    ev_stack_group_db: "Database",
+    ev_stack_group_front: "Interface",
+    ev_arch1: "Normalized schema with referential integrity and CHECK constraints on every table",
+    ev_arch2: "Business rules inside the database with PL/pgSQL triggers and procedures",
+    ev_arch3: "Layered Spring Boot application: controller, service, repository, and row mapping",
+    ev_arch4: "Data access with JDBC and named parameters",
+    ev_quote_text:
+      "It's the project where I learned to think about the data first: model the domain, constrain it, and write the SQL by hand. Since a well-designed database holds up everything built on top of it, a poorly designed one is paid for later.",
+
     lf_kicker: "Bookings & Maps",
     lf_title: "Lodging Reservation System",
     lf_subtitle:
-      "A Django platform to explore the Luciérnagas Festival's parks, see their lodging on an interactive map, and create reservations with season and availability rules.",
+      "A system built to manage reservations for different lodging types across several park venues of the Luciérnagas Festival, placed on an interactive map, applying business rules for season, availability, and capacity.",
     lf_terminal_caption:
       "# Every reservation goes through the form, the facade, and the template method before it's saved",
     lf_stat1_value: "Jun—Aug",
@@ -328,7 +429,7 @@ const translations = {
     lf_stat4_label: "Leaflet + OpenStreetMap",
     lf_nav_rules: "Rules",
     lf_overview_p1:
-      "Final project for the Software Engineering course, built with Django to browse the parks participating in the Luciérnagas Festival, explore their services and lodging, view their location on an interactive map, and create reservations with availability, season, and user permission rules.",
+      "Final project for the Software Engineering course, built with Django for the Luciérnagas Festival: several participating parks, each with its own services and lodging types, which visitors can browse in a catalog and locate on an interactive map before booking.",
     lf_overview_p2:
       "The system supports three types of use: visitors who browse the public catalog, authenticated clients who create and manage their reservations, and administrators who manage parks, services, lodging, and view all reservations.",
     lf_facts_role_value: "Team development (5 members)",
@@ -406,14 +507,14 @@ const translations = {
     sf_kicker: "Featured Project",
     sf_live_badge: "Live API",
     sf_subtitle:
-      "Inventory management system built with Spring Boot and PostgreSQL, also working as a point of sale (POS) with sales tracking and movement history.",
+      "REST API for inventory management built with Spring Boot and PostgreSQL, also working as a point of sale (POS) with sales tracking and movement history.",
     sf_stat_type: "REST API",
     sf_stat_stack: "Spring Boot & PostgreSQL",
     sf_stat_persist: "JPA + Hibernate",
     sf_stat_deploy: "Dockerized",
     sf_overview_heading: "Overview",
     sf_overview_p1:
-      "StockFlow API REST is an inventory management system designed for small and medium businesses: it manages suppliers, product catalog, and stock levels from a single backend.",
+      "StockFlow is a REST API that provides an inventory management system designed for small and medium businesses, managing suppliers, product catalog, and stock levels from a single backend.",
     sf_overview_p2:
       "Beyond inventory management, StockFlow also works as a point of sale (POS): it records sales, updates stock automatically, and keeps a full movement history for complete traceability.",
     sf_facts_heading: "Quick facts",
@@ -431,7 +532,7 @@ const translations = {
     sf_feature2_title: "Product Catalog & Stock",
     sf_feature2_desc: "Real-time inventory control, automatically updated with every movement.",
     sf_feature3_title: "Point of Sale (POS)",
-    sf_feature3_desc: "Sales registration that automatically deducts stock and calculates totals on the spot.",
+    sf_feature3_desc: "Sales registration that automatically deducts stock and calculates totals with and without taxes on the spot.",
     sf_feature4_title: "Movement History",
     sf_feature4_desc: "Full traceability of inventory in/out movements for auditing and reporting.",
     sf_stack_heading: "Tech Stack",
@@ -439,7 +540,8 @@ const translations = {
     sf_arch1: "REST API built with Spring Boot and Spring Web",
     sf_arch2: "Persistence with JPA / Hibernate on PostgreSQL",
     sf_arch3: "Interactive documentation with Swagger / OpenAPI",
-    sf_arch4: "Containerized with Docker and deployed on my personal home lab",
+    sf_arch4:
+      'Containerized with Docker and deployed on my <a class="text-[#5E81AC] dark:text-[#88C0D0] underline underline-offset-2 hover:text-gray-900 dark:hover:text-white transition-colors" href="homelab.html">personal home lab</a>',
     sf_docs_heading: "API Documentation",
     sf_docs_desc:
       "Explore every endpoint, data model, and try out requests directly from Swagger UI.",
@@ -476,7 +578,7 @@ const translations = {
     sf_flow_step4: "History",
     sf_flow_step4_desc: "The movement is recorded for traceability and auditing.",
     sf_quote_text:
-      "I built StockFlow to put real backend architecture into practice: persistence with JPA/Hibernate, documentation with Swagger, and deployment with Docker on my own server.",
+      "I built StockFlow to put real backend architecture into practice: persistence with JPA/Hibernate and PostgreSQL, business rules, documentation with Swagger, and deployment with Docker.",
     sf_quote_author: "Jesús Romero, developer",
     sf_stack_strip_label: "Built with",
     sf_stack_group_lang: "Backend",
@@ -487,15 +589,15 @@ const translations = {
     hl_kicker: "Infrastructure",
     hl_title: "Personal Server (Home Lab)",
     hl_subtitle:
-      "I self-host this portfolio and my personal projects (including StockFlow) with Docker, so they can be tested live. It also acts as the brain of my smart home with Home Assistant.",
+      "My own server running 24/7 where I self-host my projects with Docker: container deployment, secure remote access, and service administration in a real production environment.",
     hl_btn_github: "View GitHub profile",
     hl_btn_live: "See a live project",
     hl_terminal_caption: "# Everything runs in containers, remotely accessible via Tailscale",
     hl_nav_access: "Remote access",
     hl_overview_p1:
-      "This personal server is the foundation of everything I run in production: an Ubuntu Server running 24/7 at home, hosting via Docker the projects shown in this portfolio, including StockFlow and this very site.",
+      "It's a machine running Ubuntu Server, powered on 24/7 at home. I set it up to practice real infrastructure beyond code: each project lives isolated in its own Docker container, orchestrated with Docker Compose.",
     hl_overview_p2:
-      "Besides serving applications, it acts as the brain of my smart home with Home Assistant, and is securely accessible remotely from anywhere thanks to Tailscale, without exposing unnecessary ports to the internet.",
+      "Running it gives me control over where and how my projects run, and it has taught me Linux service administration, networking, and secure remote access through Tailscale and SSH, without exposing unnecessary ports to the internet.",
     hl_facts_status_value: "Active, running 24/7",
     hl_facts_os_label: "Operating system",
     hl_facts_deploy_value: "Docker & Docker Compose",
@@ -504,13 +606,13 @@ const translations = {
     hl_flow_step2: "Docker Compose",
     hl_flow_step2_desc: "Orchestrates and isolates each service in its own container.",
     hl_flow_step3: "Deployed services",
-    hl_flow_step3_desc: "Portfolio, StockFlow, and Home Assistant running side by side.",
+    hl_flow_step3_desc: "Sites, APIs, and databases running side by side, isolated from each other.",
     hl_flow_step4: "Remote access",
     hl_flow_step4_desc: "Tailscale exposes what's needed securely, without opening ports.",
     hl_feature1_title: "Project Hosting",
     hl_feature1_desc: "Hosts this portfolio and StockFlow in independent Docker containers, ready to test live.",
-    hl_feature2_title: "Home Automation",
-    hl_feature2_desc: "Home Assistant centralizes and automates the smart devices in the house.",
+    hl_feature2_title: "Publishing with Nginx and Cloudflare Tunnel",
+    hl_feature2_desc: "Nginx serves the sites and a Cloudflare tunnel exposes them on my own subdomains over HTTPS.",
     hl_feature3_title: "Orchestration with Docker Compose",
     hl_feature3_desc: "Each service lives in its own container, with reproducible, isolated deployments.",
     hl_feature4_title: "Secure Remote Access",
@@ -520,7 +622,7 @@ const translations = {
     hl_stack_group_network: "Networking & Remote Access",
     hl_stack_group_automation: "Automation",
     hl_arch1: "Ubuntu Server as the base system, running uninterrupted at home",
-    hl_arch2: "Each service (portfolio, StockFlow, Home Assistant) isolated in its own Docker container",
+    hl_arch2: "Each service isolated in its own Docker container, with its own network and volumes",
     hl_arch3: "Orchestration and reproducible deployments with Docker Compose",
     hl_arch4: "Secure remote access via Tailscale and SSH, without exposing unnecessary ports",
     hl_access_heading: "Everything runs right here",

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestión de Eventos Multirrol - Jesús Romero</title>
+<link href="../assets/img/logo/miniatura.svg" rel="icon" type="image/svg+xml"/>
+<!-- Set theme before first paint to avoid a light/dark flash -->
+<script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+<!-- Font Awesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- BEGIN: Navigation -->
+<nav aria-label="Navegación principal" class="fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white dark:bg-gray-800 rounded-full px-2 sm:px-6 py-2 sm:py-3 soft-shadow flex items-center space-x-0.5 sm:space-x-8 border border-gray-100 dark:border-gray-700 transition-colors duration-300 max-w-[95vw]">
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#inicio">
+<i class="fa-solid fa-house text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_inicio">Inicio</span>
+</a>
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#acerca">
+<i class="fa-regular fa-user text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_acerca">Acerca</span>
+</a>
+<a class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#formacion">
+<i class="fa-solid fa-graduation-cap text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_formacion">Formación</span>
+</a>
+<a aria-current="page" class="nav-link flex items-center space-x-2 text-sm px-2 py-2 sm:px-0" href="../index.html#proyectos">
+<i class="fa-regular fa-folder text-xs"></i>
+<span class="hidden sm:inline" data-i18n="nav_proyectos">Proyectos</span>
+</a>
+<span aria-hidden="true" class="w-px h-6 bg-gray-200 dark:bg-gray-700 shrink-0"></span>
+<button aria-label="Cambiar tema" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="theme-toggle" type="button">
+<i class="fa-solid fa-moon text-sm dark:hidden"></i>
+<i class="fa-solid fa-sun text-sm hidden dark:inline"></i>
+</button>
+<button aria-label="Cambiar idioma" class="flex items-center justify-center w-8 h-8 shrink-0 rounded-full text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors" id="lang-toggle" type="button">EN</button>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="flex-grow flex flex-col w-full pt-24">
+<!-- BEGIN: Hero (light, split layout) -->
+<section class="w-full px-6 md:px-12 lg:px-24 pt-8 pb-12 max-w-7xl mx-auto">
+<div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+<a class="inline-flex items-center gap-2 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors" href="../index.html#proyectos">
+<i class="fa-solid fa-arrow-left text-[10px]"></i>
+<span data-i18n="sf_back">Volver al portafolio</span>
+</a>
+</div>
+<div class="grid lg:grid-cols-5 gap-10 items-center">
+<div class="lg:col-span-2 min-w-0">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] mb-5">
+<i class="fa-solid fa-database text-[10px]"></i><span data-i18n="label_db">Bases de Datos</span>
+</span>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4" data-i18n="eventos_title">Gestión de Eventos Multirrol</h1>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8" data-i18n="ev_subtitle">Base de datos relacional para un torneo con múltiples roles de personal, participantes y ventas: modelado desde cero en PostgreSQL, con restricciones, programación en la base y consultas de reporte. Sobre esto, una API REST en Spring Boot con JDBC y un panel web para operarla.</p>
+<div class="flex flex-wrap gap-3">
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-white transition-colors" href="https://github.com/jromerog01/Proyecto-Final-Bases-de-Datos" target="_blank" rel="noopener noreferrer">
+<i class="fa-brands fa-github mr-2"></i><span data-i18n="btn_view_code">Ver código</span>
+</a>
+</div>
+<div class="mt-8 pt-8 border-t border-gray-100 dark:border-gray-800">
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-4" data-i18n="sf_stack_strip_label">Construido con</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="PostgreSQL" class="w-5 h-5" src="../assets/img/tech/postgresql.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">PostgreSQL</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Java" class="w-5 h-5" src="../assets/img/tech/java.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Java</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Spring Boot" class="w-5 h-5" src="../assets/img/tech/spring-boot.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Spring Boot</span>
+</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">JDBC</span>
+</div>
+</div>
+</div>
+<!-- BEGIN: SQL Snippet (reuses site editor motif) -->
+<div class="lg:col-span-3 w-full min-w-0">
+<div class="bg-[#2E3440] rounded-xl overflow-hidden soft-shadow border border-[#4C566A]">
+<div class="bg-[#3B4252] px-4 py-3 flex items-center justify-between border-b border-[#4C566A]">
+<div class="flex space-x-2">
+<div class="w-3 h-3 rounded-full bg-[#BF616A]"></div>
+<div class="w-3 h-3 rounded-full bg-[#EBCB8B]"></div>
+<div class="w-3 h-3 rounded-full bg-[#A3BE8C]"></div>
+</div>
+<span class="text-[#88C0D0] text-xs font-mono">dql_torneo.sql</span>
+</div>
+<div class="p-5 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+<pre class="text-[#D8DEE9] whitespace-pre"><span class="text-[#616E88]">-- Porcentaje de participantes por equipo</span>
+<span class="text-[#81A1C1]">SELECT</span>
+    c.Equipo,
+    <span class="text-[#88C0D0]">COUNT</span>(<span class="text-[#81A1C1]">DISTINCT</span> c.id_Individuo) <span class="text-[#81A1C1]">AS</span> total,
+    <span class="text-[#88C0D0]">ROUND</span>(
+        <span class="text-[#B48EAD]">100.0</span> * <span class="text-[#88C0D0]">COUNT</span>(<span class="text-[#81A1C1]">DISTINCT</span> c.id_Individuo)
+        / <span class="text-[#88C0D0]">SUM</span>(<span class="text-[#88C0D0]">COUNT</span>(<span class="text-[#81A1C1]">DISTINCT</span> c.id_Individuo)) <span class="text-[#81A1C1]">OVER</span> (),
+        <span class="text-[#B48EAD]">2</span>
+    ) <span class="text-[#81A1C1]">AS</span> porcentaje
+<span class="text-[#81A1C1]">FROM</span> Cuenta_PokemonGO c
+<span class="text-[#81A1C1]">JOIN</span> Registrador r
+    <span class="text-[#81A1C1]">ON</span> r.id_Individuo = c.id_Individuo
+<span class="text-[#81A1C1]">WHERE</span> r.esParticipante = <span class="text-[#B48EAD]">TRUE</span>
+<span class="text-[#81A1C1]">GROUP BY</span> c.Equipo
+<span class="text-[#81A1C1]">ORDER BY</span> c.Equipo;</pre>
+</div>
+</div>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-3 text-center" data-i18n="ev_sql_caption">Una de las 15 consultas de reporte pedidas por el caso de uso</p>
+</div>
+<!-- END: SQL Snippet -->
+</div>
+</section>
+<!-- END: Hero -->
+<!-- BEGIN: Docs Layout (sticky sidebar with scroll spy) -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-20 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-[220px_1fr] gap-12 border-t border-gray-100 dark:border-gray-800 pt-16">
+<!-- BEGIN: Sticky Sidebar -->
+<aside class="hidden lg:block">
+<nav class="sticky top-28 space-y-1 text-sm" id="sidebar-nav">
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#resumen" data-section="resumen" data-i18n="sf_nav_overview">Resumen</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#como-funciona" data-section="como-funciona" data-i18n="sf_flow_heading">Cómo funciona</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#funcionalidades" data-section="funcionalidades" data-i18n="sf_nav_features">Funcionalidades</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#modelo" data-section="modelo" data-i18n="ev_nav_model">Modelo de datos</a>
+<a class="sidebar-link block pl-3 pr-3 py-2 rounded-lg border-l-2 border-transparent text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors" href="#stack" data-section="stack" data-i18n="sf_nav_stack">Stack</a>
+</nav>
+</aside>
+<!-- END: Sticky Sidebar -->
+<!-- BEGIN: Content -->
+<div class="space-y-20 min-w-0">
+<!-- Overview + Facts -->
+<div class="scroll-mt-28" id="resumen">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_overview_heading">Resumen</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-4">
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="ev_overview_p1">Proyecto de la materia Fundamentos de Bases de Datos, se modeló desde cero la base de datos para un torneo con varias sedes, distintos tipos de competencia, personal con roles diferenciados (cuidadores, limpiadores, registradores y vendedores), participantes, visitantes y ventas.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="ev_overview_p2">El entregable no fue solo el esquema: incluye el modelo entidad-relación y su traducción al modelo relacional, el DDL con sus restricciones de integridad, la programación dentro de la base (disparadores y procedimientos almacenados) y consultas no triviales que responden al caso de uso.</p>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-i18n="ev_overview_p3">Sobre ese esquema construí una aplicación en Spring Boot que expone la base por HTTP mediante JDBC, con un panel web para dar de alta, consultar, editar y eliminar registros.</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl p-6 soft-shadow h-fit grid grid-cols-2 md:grid-cols-1 gap-4 text-sm">
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_role_label">Rol</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="ev_facts_role_value">Trabajo en equipo</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="lf_facts_course_label">Materia</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="ev_facts_course_value">Fundamentos de Bases de Datos</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="sf_facts_status_label">Estado</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="ev_facts_status_value">Proyecto académico</p>
+</div>
+<div>
+<p class="text-gray-400 dark:text-gray-500 text-xs" data-i18n="ev_facts_scale_label">Escala</p>
+<p class="text-gray-800 dark:text-gray-100 font-medium" data-i18n="ev_facts_scale_value">34 tablas · 45 llaves foráneas</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Cómo funciona (flow diagram) -->
+<div class="scroll-mt-28" id="como-funciona">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-10" data-i18n="sf_flow_heading">Cómo funciona</h2>
+<div class="flex flex-col lg:flex-row items-stretch gap-3 lg:gap-0">
+<div class="flex-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-diagram-project"></i></div>
+<p class="font-bold text-sm text-gray-900 dark:text-white mb-1" data-i18n="ev_flow_step1">Modelo E-R</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="ev_flow_step1_desc">Entidades, relaciones y cardinalidades a partir del caso de uso.</p>
+</div>
+<div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
+<div class="flex-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-table"></i></div>
+<p class="font-bold text-sm text-gray-900 dark:text-white mb-1" data-i18n="ev_flow_step2">Esquema relacional</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="ev_flow_step2_desc">DDL con llaves, restricciones CHECK e integridad referencial.</p>
+</div>
+<div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
+<div class="flex-1 bg-[#2E3440] border border-[#4C566A] rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-bolt"></i></div>
+<p class="font-bold text-sm text-white mb-1" data-i18n="ev_flow_step3">Lógica en la base</p>
+<p class="text-xs text-[#D8DEE9]" data-i18n="ev_flow_step3_desc">Disparadores y procedimientos que hacen cumplir las reglas del torneo.</p>
+</div>
+<div class="hidden lg:flex items-center justify-center w-10 shrink-0 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-right"></i></div>
+<div class="flex lg:hidden items-center justify-center h-6 text-gray-300 dark:text-gray-600"><i class="fa-solid fa-arrow-down"></i></div>
+<div class="flex-1 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-5 soft-shadow text-center">
+<div class="w-10 h-10 mx-auto rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-3"><i class="fa-solid fa-laptop-code"></i></div>
+<p class="font-bold text-sm text-gray-900 dark:text-white mb-1" data-i18n="ev_flow_step4">API y panel</p>
+<p class="text-xs text-gray-500 dark:text-gray-400" data-i18n="ev_flow_step4_desc">Spring Boot expone la base por HTTP y un panel web opera el CRUD.</p>
+</div>
+</div>
+</div>
+<!-- Features: bento grid -->
+<div class="scroll-mt-28" id="funcionalidades">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-6" data-i18n="sf_features_heading">Funcionalidades clave</h2>
+<div class="grid sm:grid-cols-2 gap-4 sm:auto-rows-[minmax(0,1fr)]">
+<div class="sm:row-span-2 bg-[#2E3440] border border-[#4C566A] rounded-xl p-6 flex flex-col justify-between">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/20 text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-sitemap"></i></div>
+<div>
+<h3 class="font-bold text-white mb-1" data-i18n="ev_feature1_title">Modelado relacional</h3>
+<p class="text-sm text-[#D8DEE9]" data-i18n="ev_feature1_desc">34 tablas y 45 llaves foráneas que modelan personal con roles distintos, participantes, visitantes, tres tipos de torneo y las ventas de cada evento.</p>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-bolt"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="ev_feature2_title">Disparadores y procedimientos</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="ev_feature2_desc">Reglas del torneo aplicadas dentro de la base: impedir inscripciones incompatibles y recalcular las ganancias de un evento en cada venta.</p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+<div class="w-10 h-10 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center mb-4"><i class="fa-solid fa-chart-column"></i></div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="ev_feature3_title">Consultas de reporte</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="ev_feature3_desc">15 consultas con JOINs, agregaciones y funciones de ventana: ingresos por día, semana y mes, ventas por vendedor y estadísticas de los torneos.</p>
+</div>
+<div class="sm:col-span-2 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 flex items-center gap-4">
+<div class="w-10 h-10 shrink-0 rounded-lg bg-[#5E81AC]/10 dark:bg-[#88C0D0]/10 text-[#5E81AC] dark:text-[#88C0D0] flex items-center justify-center"><i class="fa-solid fa-laptop-code"></i></div>
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white mb-1" data-i18n="ev_feature4_title">API REST y panel de administración</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="ev_feature4_desc">Spring Boot con JDBC: SQL escrito a mano, parámetros nombrados y mapeo manual de resultados, más un panel en HTML, CSS y JavaScript para operar el CRUD.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Modelo de datos: diagramas -->
+<div class="scroll-mt-28" id="modelo">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-3" data-i18n="ev_model_heading">Modelo de datos</h2>
+<p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 max-w-2xl" data-i18n="ev_model_desc">El diseño partió de un modelo entidad-relación y se tradujo después al modelo relacional que dio origen al DDL. Haz clic en cualquiera de los dos para verlo en grande.</p>
+<div class="grid sm:grid-cols-2 gap-6">
+<figure class="min-w-0">
+<a class="block rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 soft-shadow bg-white p-3 hover:border-[#5E81AC] dark:hover:border-[#88C0D0] transition-colors" href="../assets/img/proyectos/modelo-entidad-relacion.svg" target="_blank" rel="noopener noreferrer">
+<img alt="Modelo entidad-relación del torneo" class="w-full h-64 object-contain" loading="lazy" src="../assets/img/proyectos/modelo-entidad-relacion.svg"/>
+</a>
+<figcaption class="text-xs text-gray-400 dark:text-gray-500 mt-3" data-i18n="ev_model_er">Modelo entidad-relación</figcaption>
+</figure>
+<figure class="min-w-0">
+<a class="block rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700 soft-shadow bg-white p-3 hover:border-[#5E81AC] dark:hover:border-[#88C0D0] transition-colors" href="../assets/img/proyectos/modelo-relacional.svg" target="_blank" rel="noopener noreferrer">
+<img alt="Modelo relacional del torneo" class="w-full h-64 object-contain" loading="lazy" src="../assets/img/proyectos/modelo-relacional.svg"/>
+</a>
+<figcaption class="text-xs text-gray-400 dark:text-gray-500 mt-3" data-i18n="ev_model_rel">Modelo relacional</figcaption>
+</figure>
+</div>
+</div>
+<!-- Stack + Arquitectura -->
+<div class="scroll-mt-28" id="stack">
+<div class="grid md:grid-cols-2 gap-12">
+<div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-8" data-i18n="sf_stack_heading">Stack Tecnológico</h2>
+<div class="space-y-6">
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="ev_stack_group_db">Base de datos</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="PostgreSQL" class="w-5 h-5" src="../assets/img/tech/postgresql.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">PostgreSQL</span>
+</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">SQL</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">PL/pgSQL</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">Mockaroo</span>
+</div>
+</div>
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="sf_stack_group_lang">Backend</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Java" class="w-5 h-5" src="../assets/img/tech/java.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Java</span>
+</span>
+<span class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full pl-2 pr-4 py-1.5 soft-shadow">
+<img alt="Spring Boot" class="w-5 h-5" src="../assets/img/tech/spring-boot.svg"/>
+<span class="text-xs font-medium text-gray-600 dark:text-gray-300">Spring Boot</span>
+</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">JDBC</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">OpenAPI</span>
+</div>
+</div>
+<div>
+<p class="text-xs font-bold tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3" data-i18n="ev_stack_group_front">Interfaz</p>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">HTML</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">CSS</span>
+<span class="inline-flex items-center leading-none px-4 py-1.5 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-300 soft-shadow">JavaScript</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight mb-8" data-i18n="sf_arch_heading">Arquitectura</h2>
+<ul class="space-y-3 text-sm">
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="ev_arch1">Esquema normalizado con integridad referencial y restricciones CHECK sobre cada tabla</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="ev_arch2">Reglas de negocio dentro de la base con disparadores y procedimientos en PL/pgSQL</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="ev_arch3">Aplicación Spring Boot por capas: controlador, servicio, repositorio y mapeo de filas</span>
+</li>
+<li class="flex items-start gap-3 text-gray-600 dark:text-gray-300">
+<i class="fa-solid fa-check text-[#5E81AC] dark:text-[#88C0D0] mt-1"></i>
+<span data-i18n="ev_arch4">Acceso a datos con JDBC y parámetros nombrados</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Content -->
+</div>
+</section>
+<!-- END: Docs Layout -->
+<!-- BEGIN: Quote -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-20 max-w-3xl mx-auto text-center">
+<i class="fa-solid fa-quote-left text-2xl text-gray-200 dark:text-gray-700 mb-4"></i>
+<p class="text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium" data-i18n="ev_quote_text">Es el proyecto donde aprendí a pensar primero en los datos: modelar el dominio, imponerle restricciones y escribir el SQL a mano. Ya que una base bien diseñada sostiene todo lo que se construye encima, una mal diseñada se paga después.</p>
+</section>
+<!-- END: Quote -->
+<!-- BEGIN: Back CTA -->
+<section class="w-full px-6 md:px-12 lg:px-24 pb-24 max-w-4xl mx-auto text-center border-t border-gray-100 dark:border-gray-800 pt-16">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="sf_cta_heading">¿Quieres ver más proyectos?</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6" data-i18n="sf_cta_desc">Regresa al portafolio para conocer el resto de mi trabajo.</p>
+<a class="inline-flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white hover:underline" href="../index.html#proyectos">
+<i class="fa-solid fa-arrow-left text-xs"></i>
+<span data-i18n="sf_back">Volver al portafolio</span>
+</a>
+</section>
+<!-- END: Back CTA -->
+</main>
+<!-- END: Main Content -->
+<footer class="w-full py-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 text-center">
+<p class="text-xs text-gray-400 dark:text-gray-500" data-i18n="footer_copyright">© 2026 Jesús Antonio Romero Godoy</p>
+<p class="text-xs text-gray-400 dark:text-gray-500 mt-1" data-i18n="footer_built_with">Desarrollado con HTML, CSS y JavaScript</p>
+</div>
+</footer>
+<script defer="" src="../js/theme.js"></script>
+<script defer="" src="../js/i18n.js"></script>
+<script defer="">
+    (function () {
+      var ACTIVE = ['border-[#5E81AC]', 'dark:border-[#88C0D0]', 'bg-gray-50', 'dark:bg-gray-800'];
+      var INACTIVE = ['border-transparent'];
+
+      function init() {
+        var links = document.querySelectorAll('#sidebar-nav .sidebar-link');
+        if (!links.length) return;
+        var sections = [];
+        links.forEach(function (link) {
+          var section = document.getElementById(link.dataset.section);
+          if (section) sections.push(section);
+        });
+        if (!sections.length) return;
+
+        function setActive(id) {
+          links.forEach(function (link) {
+            var isActive = link.dataset.section === id;
+            ACTIVE.forEach(function (c) { link.classList[isActive ? 'add' : 'remove'](c); });
+            INACTIVE.forEach(function (c) { link.classList[isActive ? 'remove' : 'add'](c); });
+          });
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(function (section) { observer.observe(section); });
+        setActive(sections[0].id);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body></html>
