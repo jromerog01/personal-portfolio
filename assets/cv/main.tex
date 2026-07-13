@@ -67,11 +67,13 @@
 
 \newenvironment{highlights}{
     \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
+        label={-},
+        topsep=0pt,
+        parsep=0pt,
         partopsep=0pt,
         itemsep=0pt,
-        leftmargin=0.4 cm + 10pt
+        leftmargin=0.35 cm,
+        labelsep=0.15 cm
     ]
 }{
     \end{itemize}
@@ -168,9 +170,11 @@ Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, enfocado e
 \begin{twocolentry}{
     Java, Spring Boot,\\ PostgreSQL \& Docker
 }
-    \textbf{\href{https://github.com/jromerog01/StockFlow-APIRest}{StockFlow API — API REST de Inventarios y Punto de Venta}}\\
-    - Gestión de proveedores, productos y stock con punto de venta e historial de movimientos, persistencia con JPA/Hibernate sobre PostgreSQL.\\
-    - Documentada con Swagger/OpenAPI, contenerizada con Docker y en producción self-hosted en \href{https://stockflow-api.jromerog.dev/swagger-ui/index.html}{stockflow-api.jromerog.dev}.
+    \textbf{\href{https://github.com/jromerog01/StockFlow-APIRest}{StockFlow API — API REST de Inventarios y Punto de Venta}}
+    \begin{highlights}
+        \item Gestión de proveedores, productos y stock con punto de venta e historial de movimientos, persistencia con JPA/Hibernate sobre PostgreSQL.
+        \item Documentada con Swagger/OpenAPI, contenerizada con Docker y en producción self-hosted en \mbox{\href{https://stockflow-api.jromerog.dev/swagger-ui/index.html}{stockflow-api.jromerog.dev}}.
+    \end{highlights}
 \end{twocolentry}
 
 \vspace{0.15 cm}
@@ -178,9 +182,11 @@ Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, enfocado e
 \begin{twocolentry}{
     Ubuntu Server,\\ \& Docker 
 }
-    \textbf{\href{https://jromerog.dev/}{Servidor Personal / Home Lab}}\\
-    - Equipo con Ubuntu Server 24/7 que aloja mis proyectos con Docker y Docker Compose, administrando imágenes, volúmenes y redes de contenedores.\\
-    - Publicación mediante Cloudflare Tunnel (HTTPS en subdominios propios), acceso remoto seguro mediante SSH y Tailscale sin exponer puertos.
+    \textbf{\href{https://jromerog.dev/}{Servidor Personal / Home Lab}}
+    \begin{highlights}
+        \item Equipo con Ubuntu Server 24/7 que aloja mis proyectos con Docker y Docker Compose, administrando imágenes, volúmenes y redes de contenedores.
+        \item Publicación mediante Cloudflare Tunnel (HTTPS en subdominios propios), acceso remoto seguro mediante SSH y Tailscale sin exponer puertos.
+    \end{highlights}
 \end{twocolentry}
 
 \vspace{0.15 cm}
@@ -188,9 +194,11 @@ Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, enfocado e
 \begin{twocolentry}{
     PostgreSQL, PL/pgSQL\\ \& Spring Boot
 }
-    \textbf{\href{https://github.com/jromerog01/Proyecto-Final-Bases-de-Datos}{Sistema de Gestión de Eventos Multirrol}}\\
-    - Modelado relacional desde cero, con 34 tablas y 45 llaves foráneas, con disparadores y procedimientos almacenados en PL/pgSQL.\\
-    - API REST en Spring Boot con JDBC y panel web para el CRUD. Trabajo en equipo.
+    \textbf{\href{https://github.com/jromerog01/Proyecto-Final-Bases-de-Datos}{Sistema de Gestión de Eventos Multirrol}}
+    \begin{highlights}
+        \item Modelado relacional desde cero, con 34 tablas y 45 llaves foráneas, con disparadores y procedimientos almacenados en PL/pgSQL.
+        \item API REST en Spring Boot con JDBC y panel web para el CRUD. Trabajo en equipo.
+    \end{highlights}
 \end{twocolentry}
 
 \vspace{0.15 cm}
@@ -198,9 +206,11 @@ Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, enfocado e
 \begin{twocolentry}{
     Python, Django\\ \& Docker
 }
-    \textbf{\href{https://github.com/jromerog01/Sistema-Reservaciones-Luciernagas}{Sistema de Reservaciones de Hospedaje}}\\
-    - App Django de reservaciones multisede con mapa interactivo (Leaflet/OpenStreetMap), reglas de negocio de temporada y roles de Visitante, Cliente y Administrador.\\
-    - Desarrollo en equipo, con arquitectura basada en los patrones Facade, Template, \mbox{Observer} y Adapter, autenticación con Google y despliegue contenerizado en \mbox{\href{https://lumina-fest.jromerog.dev/}{lumina-fest.jromerog.dev}}.
+    \textbf{\href{https://github.com/jromerog01/Sistema-Reservaciones-Luciernagas}{Sistema de Reservaciones de Hospedaje}}
+    \begin{highlights}
+        \item App Django de reservaciones multisede con mapa interactivo (Leaflet/OpenStreetMap), reglas de negocio de temporada y roles de Visitante, Cliente y Administrador.
+        \item Desarrollo en equipo, con arquitectura basada en patrones Facade, Template, \mbox{Observer} y Adapter, autenticación con Google y despliegue contenerizado en \mbox{\href{https://lumina-fest.jromerog.dev/}{lumina-fest.jromerog.dev}}.
+    \end{highlights}
 \end{twocolentry}
 
 
@@ -210,9 +220,9 @@ Estudiante de 7º semestre de Ciencias de la Computación en la UNAM, enfocado e
 %====================
 \section{Habilidades Técnicas}
 \begin{onecolentry}
-    \textbf{Lenguajes:} Java (Intermedio), Python (Intermedio), SQL\\
+    \textbf{Lenguajes:} Java (Intermedio), Python (Intermedio)\\
     \textbf{Backend:} Spring Boot (Intermedio; JPA/Hibernate, Spring Web, Swagger/OpenAPI), Django (Básico)\\
-    \textbf{Bases de Datos:} PostgreSQL (Intermedio; modelado relacional, consultas avanzadas, PL/pgSQL), SQLite (Básico)\\
+    \textbf{Bases de Datos:} PostgreSQL (Intermedio; modelo relacional, consultas avanzadas, PL/pgSQL), SQLite (Básico)\\
     \textbf{DevOps / Infraestructura:} Docker, Docker Compose, Nginx, Cloudflare Tunnel, Tailscale, SSH\\
     \textbf{Sistemas Operativos:} Fedora Linux, Ubuntu Server, Windows\\
     \textbf{Herramientas:} Git, GitHub, Postman \\
