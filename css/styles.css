@@ -71,10 +71,15 @@ body {
 }
 
 #inicio,
-#acerca,
-#formacion,
 #proyectos {
   scroll-margin-top: 7rem;
+}
+
+/* Estas secciones ya aportan 6rem de padding superior propio, así que solo
+   necesitan el resto para librar la píldora del nav. */
+#acerca,
+#formacion {
+  scroll-margin-top: 1rem;
 }
 
 .dark .icon-invert {
