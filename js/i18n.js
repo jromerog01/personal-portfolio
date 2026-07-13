@@ -7,7 +7,7 @@ const translations = {
     nav_formacion: "Formación",
     hero_greeting: "Hola!, soy",
     hero_desc:
-      'Soy estudiante de 7.º semestre de <strong class="text-gray-800 dark:text-gray-100 font-semibold">Ciencias de la Computación</strong> en la UNAM, enfocado en desarrollo backend con <strong class="text-gray-800 dark:text-gray-100 font-semibold">Java y Spring Boot</strong>. Cuento con más de tres años programando y experiencia con PostgreSQL, Hibernate, JPA, Docker y Git.',
+      'Soy estudiante de 7º semestre de <strong class="text-gray-800 dark:text-gray-100 font-semibold">Ciencias de la Computación</strong> en la UNAM, enfocado en desarrollo backend con <strong class="text-gray-800 dark:text-gray-100 font-semibold">Java y Spring Boot</strong>. Cuento con más de tres años programando y experiencia con PostgreSQL, Hibernate, JPA, Docker y Git.',
     btn_hire: "Ver Portafolio",
     btn_cv: "Descargar CV",
     btn_show_more_tech: "Ver más",
