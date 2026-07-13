@@ -4,3 +4,11 @@
 pruebasDiseno
 informacion.md
 *.md
+
+# Fuente y artefactos del CV (solo se publica assets/cv/CV_JesusRomero.pdf)
+assets/cv/main.tex
+assets/cv/main.pdf
+**/*.aux
+**/*.out
+**/*.log
+**/*.synctex.gz

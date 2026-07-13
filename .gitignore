@@ -12,6 +12,12 @@ Thumbs.db
 # Logs
 *.log
 
+# LaTeX build artifacts (el CV se publica como assets/cv/CV_JesusRomero.pdf)
+assets/cv/main.pdf
+*.aux
+*.out
+*.synctex.gz
+
 # Assets
 assets/materias.png
 
