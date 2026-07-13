@@ -20,13 +20,21 @@ if (floatingNav) {
     });
   };
 
-  // A clicked anchor lands at its scroll-margin-top, so the marker must sit at
-  // that same line (plus a pixel of slack) or the previous section still wins.
-  const markerOffset = (section) =>
-    parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
+  // The probe line sits a third down the viewport: a section becomes current
+  // once it reaches that line, not when its edge grazes the nav. It must also
+  // clear scroll-margin-top, or a freshly clicked anchor lands below the line
+  // and the previous section stays highlighted.
+  const probeLine = () => {
+    const margins = sections.map(
+      ({ section }) => parseFloat(getComputedStyle(section).scrollMarginTop) || 0
+    );
+    return Math.max(Math.max(...margins) + 1, window.innerHeight / 3);
+  };
 
   const updateActiveSection = () => {
-    // At the bottom of the page the last section may never reach the marker.
+    if (!sections.length) return;
+
+    // The last section may be too short to ever reach the probe line.
     const atBottom =
       window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
     if (atBottom) {
@@ -34,15 +42,18 @@ if (floatingNav) {
       return;
     }
 
+    const probe = window.scrollY + probeLine();
     let active = sections[0];
+
+    // Sections are ordered by position, so the last one starting above the
+    // probe is the one being read. (#proyectos is nested inside #formacion,
+    // but its start still comes later, so ordering by start still holds.)
     sections.forEach((item) => {
       const top = item.section.getBoundingClientRect().top + window.scrollY;
-      if (top <= window.scrollY + markerOffset(item.section) + 1) {
-        active = item;
-      }
+      if (top <= probe) active = item;
     });
 
-    if (active) setActiveLink(active.link);
+    setActiveLink(active.link);
   };
 
   let ticking = false;
@@ -55,8 +66,8 @@ if (floatingNav) {
     });
   };
 
-  // Hold the clicked link active until the smooth scroll settles, so the
-  // intermediate sections it flies past don't steal the highlight.
+  // Hold the clicked link until the smooth scroll settles, so the sections it
+  // flies past don't steal the highlight on the way there.
   let lockUntil = 0;
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
@@ -65,12 +76,14 @@ if (floatingNav) {
     });
   });
 
-  const onScroll = () => {
-    if (Date.now() < lockUntil) return;
-    requestUpdate();
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (Date.now() < lockUntil) return;
+      requestUpdate();
+    },
+    { passive: true }
+  );
   window.addEventListener('resize', requestUpdate);
   window.addEventListener('load', requestUpdate);
   updateActiveSection();
